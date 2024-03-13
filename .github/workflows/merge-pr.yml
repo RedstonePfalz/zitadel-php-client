@@ -1,0 +1,82 @@
+name: Merge Pull Request
+
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  merge-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check if comment contains /merge
+        id: check-comment
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.BOT_TOKEN }}
+          script: |
+            const comment = context.payload.comment.body;
+            const userHasDesiredUsername = context.payload.comment.user.login === 'RedstonePfalz';
+            const shouldMerge = userHasDesiredUsername && comment.includes('/merge');
+            core.setOutput('shouldMerge', shouldMerge);
+
+      - name: Merge Pull Request
+        if: steps.check-comment.outputs.shouldMerge == 'true'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.BOT_TOKEN }}
+          script: |
+            const prNumber = context.issue.number;
+
+                 // Squash and merge the Pull Request
+            const mergeResponse = await github.rest.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              merge_method: 'squash'
+            });
+            
+            
+              // Fetch the latest commit message
+              const commits = await github.rest.pulls.listCommits({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prNumber
+              });
+              const latestCommitId = commits.data[commits.data.length - 1].sha;
+
+              const commitData = await github.rest.git.getCommit({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                commit_sha: latestCommitId
+              });
+
+              // Extrahiere den Commit-Titel und die Beschreibung
+              const commitTitle = commitData.data.message.split('\n')[0];
+              const commitDescription = commitData.data.message;
+
+              // Replace "Co-authored-by" in the commit message
+              const newCommitMessage = commitDescription + "\nCo-authored-by: AdministrationBot <147314055+AdministrationBot@users.noreply.github.com>\nCo-authored-by: RedstonePfalz <55254344+RedstonePfalz@users.noreply.github.com>";
+              console.log(newCommitMessage);
+            
+              // Konfiguriere Git mit dem GitHub-Benutzernamen und -E-Mail
+              await exec.exec('git', ['config', 'user.name', 'AdministrationBot']);
+              await exec.exec('git', ['config', 'user.email', '147314055+AdministrationBot@users.noreply.github.com']);
+              await exec.exec('git', ['config', 'user.password', '${{ secrets.BOT_TOKEN }}']);
+              await exec.exec('git', ['config', 'pull.rebase', 'true']);
+            
+            
+              await exec.exec('git', ['pull', 'https://github.com/RedstonePfalz/zitadel-php-client.git', 'main', '--rebase']);
+              // Bearbeite den Commit lokal
+              await exec.exec('git', ['commit', '--amend', '--allow-empty', '-m', newCommitMessage]);
+              // Drücke die Änderungen auf das GitHub-Repository
+              await exec.exec('git', ['fetch', 'https://github.com/RedstonePfalz/zitadel-php-client.git', 'main']);
+              await exec.exec('git', ['log', 'origin/main..HEAD']);
+              await exec.exec('git', ['push', '--force', 'https://github.com/RedstonePfalz/zitadel-php-client.git', 'main']);
+
+              
+           
