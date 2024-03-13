@@ -1,0 +1,28 @@
+name: Label "good first issue" for First-Time Contributors
+
+on:
+  issues:
+    types:
+      - opened
+  pull_request_target:
+    types:
+      - opened
+
+jobs:
+  labelFirstTimeContributor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if user is a first-time contributor
+        id: check_first_time_contributor
+        run: |
+          if [ -z "$(curl -sSL https://api.github.com/repos/${{ github.repository }}/collaborators/${{ github.event.issue.user.login }}/check)" ]; then
+            echo "::set-output name=first_time_contributor::true"
+          else
+            echo "::set-output name=first_time_contributor::false"
+          fi
+
+      - name: Add "good first issue" label if user is a first-time contributor
+        if: steps.check_first_time_contributor.outputs.first_time_contributor == 'true'
+        run: |
+          gh issue label add ${{ github.event.issue.number }} "good first issue"
