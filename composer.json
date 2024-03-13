@@ -1,0 +1,21 @@
+{
+    "name": "redstonepfalz/zitadel-php-client",
+    "description": "PHP-Client for Zitadel",
+    "license": "GNU GPLv3",
+    "autoload": {
+        "psr-4": {
+            "ZitadelPhpClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "RedstonePfalz",
+            "email": "55254344+RedstonePfalz@users.noreply.github.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "symfony/flex": true
+        }
+    }
+}
