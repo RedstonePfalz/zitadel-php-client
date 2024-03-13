@@ -2,7 +2,7 @@
   "include-component-in-tag": false,
   "include-v-in-tag": true,
   "pull-request-title-pattern": "release: ${version}",
-  "release-type": "composer",
+  "release-type": "php",
   "packages": {
     ".": {
       "changelog-path": "CHANGELOG.md",
