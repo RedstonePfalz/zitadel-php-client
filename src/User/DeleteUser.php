@@ -8,16 +8,25 @@ class DeleteUser
 {
     private $settings;
     private $userid;
-    public function __construct($settings) {
+    /**Initialize the user deletion
+     * @param $settings array The settings array
+     */
+    public function __construct($settings)
+    {
         $this->settings = $settings;
     }
+
+    /**Set the user ID
+     * @param $userid int The id of the user
+     * @return void
+     */
     public function setUserId($userid) {
         $this->userid = $userid;
     }
 
-    /**
+    /**Deletes the user and sends the request to Zitadel
      * @return void
-     * @throws Exception
+     * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
      */
     public function delete() {
         $token = $this->settings["serviceUserToken"];
