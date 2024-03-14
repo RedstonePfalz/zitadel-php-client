@@ -205,7 +205,6 @@ class NewUser
             ),
             "idpLinks" => $this->idpLinks
         );
-        echo json_encode($request);
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/human",
