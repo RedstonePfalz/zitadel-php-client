@@ -44,7 +44,7 @@ class NewUser
         $this->userid = $userid;
     }
 
-    /**Set the username id the new user
+    /**Set the username of the new user
      * @param $username string The username of the new user
      * @return void
      */
