@@ -1,0 +1,22 @@
+name: Comment on New Issue or Pull Request
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  comment:
+    name: Comment on Issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Comment on Issue or Pull Request
+        run: |
+          COMMENT_BODY="Hello,\nThank you for creating an issue. We will reply as soon as possible."
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.BOT_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "{\"body\": \"$COMMENT_BODY\"}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments"

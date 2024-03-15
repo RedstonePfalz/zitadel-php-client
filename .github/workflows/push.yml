@@ -1,0 +1,67 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  syntax_check:
+    name: Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Check Syntax
+        uses: overtrue/phplint@3.4.0
+
+  runPHPCSInspection:
+    name: Run PHPCS inspection
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Run PHPCS inspection
+        uses: rtCamp/action-phpcs-code-review@v3
+        env:
+          GH_BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          SKIP_FOLDERS: "tests,.github"
+        with:
+          args: "PHPCompatibility"
+
+  securityCheck1:
+    name: Security check 1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: symfonycorp/security-checker-action@v5
+
+  securityCheck2:
+    name: Security check 2
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker://ghcr.io/psalm/psalm-github-actions
+        with:
+          composer_require_dev: true
+          composer_ignore_platform_reqs: true
+          security_analysis: true
+          report_file: results.sarif
+      - name: Upload Security Analysis results to GitHub
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results.sarif
+
+  securityCheck3:
+    name: Security check 3
+    runs-on: ubuntu-latest
+    env:
+      GO111MODULE: true
+    steps:
+      - uses: actions/checkout@v3
+      - uses: securego/gosec@master
+        with:
+          args: ./...

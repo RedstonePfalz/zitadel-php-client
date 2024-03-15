@@ -1,0 +1,22 @@
+name: Comment on New Issue or Pull Request
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  comment:
+    name: Comment on Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Comment on Issue or Pull Request
+        run: |
+          COMMENT_BODY="Hello,\nThank you for creating a pull request.\nYour pull request is now being automatically checked in the background. Once these checks have been completed, your commits will be checked manually.\nPlease check the following things again first:\n- Do the commits follow the [ConventionalCommits standard](https://conventionalcommits.org/)?\n- Are all changes precisely described?\n- Have you tested your changes sufficiently?\n- Have you documented new functions, etc. according to the PHPDoc standard?"
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.BOT_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "{\"body\": \"$COMMENT_BODY\"}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments"
