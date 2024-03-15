@@ -4,14 +4,17 @@ namespace ZitadelPhpClient\User;
 
 use Exception;
 
+/**
+ * Class to delete a user
+ */
 class DeleteUser
 {
-    private $settings;
-    private $userid;
+    private array $settings;
+    private int $userid;
     /**Initialize the user deletion
      * @param $settings array The settings array
      */
-    public function __construct($settings)
+    public function __construct(array $settings)
     {
         $this->settings = $settings;
     }
@@ -20,7 +23,7 @@ class DeleteUser
      * @param $userid int The id of the user
      * @return void
      */
-    public function setUserId($userid) {
+    public function setUserId(int $userid) {
         $this->userid = $userid;
     }
 

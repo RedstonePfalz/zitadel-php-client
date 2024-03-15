@@ -3,34 +3,36 @@
 namespace ZitadelPhpClient\User;
 
 use Exception;
-use ZitadelPhpClient\ZitadelPhpClient;
 
+/**
+ *Class to create a new user
+ */
 class NewUser
 {
-    private $settings;
-    private $userid;
-    private $username;
-    private $organizationId;
-    private $organizationDomain;
-    private $givenName;
-    private $familyName;
-    private $nickName;
-    private $displayName;
-    private $preferredLanguage;
-    private $gender;
-    private $email;
-    private $isEmailVerified;
-    private $phone;
-    private $isPhoneVerified;
-    private $password;
-    private $passwordChangeRequired;
-    private $metadata;
-    private $idpLinks;
+    private array $settings;
+    private int $userid;
+    private string $username;
+    private string $organizationId;
+    private string $organizationDomain;
+    private string $givenName;
+    private string $familyName;
+    private string $nickName;
+    private string $displayName;
+    private string $preferredLanguage;
+    private string $gender;
+    private string $email;
+    private bool $isEmailVerified;
+    private string $phone;
+    private bool $isPhoneVerified;
+    private string $password;
+    private bool $passwordChangeRequired;
+    private array $metadata;
+    private array $idpLinks;
 
     /**Initialize the user creation
      * @param $settings array The settings array
      */
-    public function __construct($settings)
+    public function __construct(array $settings)
     {
         $this->settings = $settings;
     }
@@ -39,7 +41,7 @@ class NewUser
      * @param $userid int The user id of the new user
      * @return void
      */
-    public function setUserId($userid)
+    public function setUserId(int $userid)
     {
         $this->userid = $userid;
     }
@@ -48,7 +50,7 @@ class NewUser
      * @param $username string The username of the new user
      * @return void
      */
-    public function setUserName($username)
+    public function setUserName(string $username)
     {
         $this->username = $username;
     }
@@ -58,7 +60,7 @@ class NewUser
      * @param $orgDomain string Organization-Domain
      * @return void
      */
-    public function setOrganization($orgId, $orgDomain)
+    public function setOrganization(int $orgId, string $orgDomain)
     {
         $this->organizationId = $orgId;
         $this->organizationDomain = $orgDomain;
@@ -69,7 +71,7 @@ class NewUser
      * @param $familyName string Family Name
      * @return void
      */
-    public function setName($givenName, $familyName)
+    public function setName(string $givenName, string $familyName)
     {
         $this->givenName = $givenName;
         $this->familyName = $familyName;
@@ -79,7 +81,7 @@ class NewUser
      * @param $nickName string Nickname
      * @return void
      */
-    public function setNickName($nickName)
+    public function setNickName(string $nickName)
     {
         $this->nickName = $nickName;
     }
@@ -88,7 +90,7 @@ class NewUser
      * @param $displayName string Display name
      * @return void
      */
-    public function setDisplayName($displayName)
+    public function setDisplayName(string $displayName)
     {
         $this->displayName = $displayName;
     }
@@ -97,7 +99,7 @@ class NewUser
      * @param $lang string Shortcode of the language, e.g. "en" or "de"
      * @return void
      */
-    public function setLanguage($lang) {
+    public function setLanguage(string $lang) {
         $this->preferredLanguage = $lang;
     }
 
@@ -105,7 +107,7 @@ class NewUser
      * @param $gender string Default: GENDER_UNSPECIFIED, Possible values: GENDER_MALE, GENDER_FEMALE, GENDER_DIVERSE
      * @return void
      */
-    public function setGender($gender) {
+    public function setGender(string $gender) {
         if ($gender == "GENDER_FEMALE" or $gender == "GENDER_MALE" or $gender == "GENDER_DIVERSE") {
             $this->gender = $gender;
         } else {
@@ -117,7 +119,7 @@ class NewUser
      * @param $email string Email address
      * @return void
      */
-    public function setEmail($email) {
+    public function setEmail(string $email) {
         $this->email = $email;
         $this->isEmailVerified = true;
     }
@@ -126,7 +128,7 @@ class NewUser
      * @param $phone string Phone number in the format with county code, e.g. "+491590123456"
      * @return void
      */
-    public function setPhone($phone) {
+    public function setPhone(string $phone) {
         $this->phone = $phone;
         $this->isPhoneVerified = true;
 
@@ -137,7 +139,7 @@ class NewUser
      * @param $value string Value
      * @return void
      */
-    public function addMetaData($key, $value) {
+    public function addMetaData(string $key, string $value) {
         $this->metadata[] = [
             "key" => $key,
             "value" => base64_encode($value)
@@ -149,7 +151,7 @@ class NewUser
      * @param $changeRequired bool If a change is required, the user have to set a new password at the next login.
      * @return void
      */
-    public function setPassword($password, $changeRequired) {
+    public function setPassword(string $password, bool $changeRequired) {
         $this->password = $password;
         $this->passwordChangeRequired = $changeRequired;
     }
@@ -160,7 +162,7 @@ class NewUser
      * @param $userName string The username you get from the Identity Provider
      * @return void
      */
-    public function addIDPLink($idpId, $userId, $userName) {
+    public function addIDPLink(int $idpId, string $userId, string $userName) {
         $this->idpLinks[] = [
             "idpId" => $idpId,
             "userId" => $userId,
