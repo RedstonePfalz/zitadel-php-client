@@ -74,6 +74,7 @@ class Email
 
     /**Get a new Verification code
      * @return void
+     * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
      */
     public function resendVerificationCode() {
         $curl = curl_init();
@@ -97,7 +98,11 @@ class Email
         ));
 
         $response = json_decode(curl_exec($curl));
-        $this->returnedVerificationCode = $response->verificationCode;
+        if(isset($response->code)) {
+            throw new Exception("Error-Code: " . $response->code . " Message: " . $response->message);
+        } else {
+            $this->returnedVerificationCode = $response->verificationCode;
+        }
         curl_close($curl);
     }
 
