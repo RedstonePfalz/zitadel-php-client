@@ -7,7 +7,7 @@ use Exception;
 /**
  * Class to delete a user
  */
-class DeleteUser
+class Delete
 {
     private array $settings;
     private int $userid;

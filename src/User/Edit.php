@@ -7,7 +7,7 @@ use Exception;
 /**Class to edit user data. Important: To change the email address, phone number or the password, use the Email or Password Class!
  *
  */
-class EditUser
+class Edit
 {
     private array $settings;
     private int $userid;
