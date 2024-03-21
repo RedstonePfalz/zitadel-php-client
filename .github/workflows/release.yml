@@ -7,7 +7,7 @@ on:
 jobs:
   create_release:
     name: Create Release
-    if: github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, "autorelease: pending")
+    if: "${{ github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, 'autorelease: pending') }}"
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -22,8 +22,8 @@ jobs:
         run: echo "::set-output name=changelog::$(cat CHANGELOG.md)"
 
       - name: Create Release
-        uses: actions/create-release@v1
         id: create_release
+        uses: actions/create-release@v1
         with:
           tag_name: v${{ steps.get_version.outputs.version }}
           release_name: Release v${{ steps.get_version.outputs.version }}
@@ -32,7 +32,7 @@ jobs:
           prerelease: false
           token: ${{ secrets.BOT_TOKEN }}
 
-      - name: Set 'autorelease: published' label
+      - name: Set autorelease published label
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
