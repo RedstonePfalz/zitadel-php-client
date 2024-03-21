@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/RedstonePfalz/zitadel-php-client/compare/v1.0.0...v1.0.1) (2024-03-21)
+
+
+### Miscellaneous Chores
+
+* Create release.yml ([6494c54](https://github.com/RedstonePfalz/zitadel-php-client/commit/6494c549d865eb9bf4497e28dd47a692dfa3e9df))
+* test ([731e431](https://github.com/RedstonePfalz/zitadel-php-client/commit/731e4316da5822a63d3a3f585d27db20d949e62d))
+
 ## [1.0.0](https://github.com/RedstonePfalz/zitadel-php-client/compare/v1.0.0...v1.0.0) (2024-03-21)
 
 
