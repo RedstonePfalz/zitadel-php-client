@@ -20,3 +20,15 @@ jobs:
             -H "Content-Type: application/json" \
             -d "{\"body\": \"$COMMENT_BODY\"}" \
             "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
+            
+      - name: Add 'do-not-merge' label
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.BOT_TOKEN }}
+          script: |
+            await github.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['do not merge']
+            });
