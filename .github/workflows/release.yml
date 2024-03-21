@@ -28,8 +28,9 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v${{ steps.get_version.outputs.version }}
-          title: Release v${{ steps.get_version.outputs.version }}
-          body: ${{ steps.read_changelog.outputs.changelog }}
+          title: v${{ steps.get_version.outputs.version }}
+          body: |
+            $(cat CHANGELOG.md)
           token: ${{ secrets.BOT_TOKEN }}
 
       - name: Set autorelease published label
