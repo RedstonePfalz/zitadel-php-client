@@ -30,6 +30,7 @@ jobs:
           tag_name: v${{ steps.get_version.outputs.version }}
           title: v${{ steps.get_version.outputs.version }}
           body: |
+            new release
             $(cat CHANGELOG.md)
           token: ${{ secrets.BOT_TOKEN }}
 
