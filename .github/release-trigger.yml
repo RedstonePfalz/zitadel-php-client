@@ -1,0 +1,3 @@
+enabled: true
+lang: "php"
+triggerWithoutPullRequest: true
