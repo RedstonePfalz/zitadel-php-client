@@ -29,9 +29,7 @@ jobs:
         with:
           tag_name: v${{ steps.get_version.outputs.version }}
           title: v${{ steps.get_version.outputs.version }}
-          body: |
-            new release
-            $(cat CHANGELOG.md)
+          body: ${{ steps.read_changelog.outputs.changelog }}
           token: ${{ secrets.BOT_TOKEN }}
 
       - name: Set autorelease published label
