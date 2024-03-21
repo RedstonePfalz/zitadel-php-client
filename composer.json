@@ -19,7 +19,7 @@
         }
     },
     "require": {
-        "chillerlan/php-qrcode": "5.0.1",
+        "chillerlan/php-qrcode": "5.0.2",
         "ext-curl": "*",
         "ext-json": "*"
     }
