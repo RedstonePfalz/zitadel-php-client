@@ -1,0 +1,51 @@
+name: Create Release on Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  create_release:
+    name: Create Release
+    if: github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, "autorelease: pending")
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Get version from .release-please-manifest.json
+        id: get_version
+        run: echo "::set-output name=version::$(jq -r .version .release-please-manifest.json)"
+
+      - name: Read Changelog
+        id: read_changelog
+        run: echo "::set-output name=changelog::$(cat CHANGELOG.md)"
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          tag_name: v${{ steps.get_version.outputs.version }}
+          release_name: Release v${{ steps.get_version.outputs.version }}
+          body: ${{ steps.read_changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
+          token: ${{ secrets.BOT_TOKEN }}
+
+      - name: Set 'autorelease: published' label
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.BOT_TOKEN }}
+          script: |
+            await github.issues.removeLabel({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              name: 'autorelease: pending'
+            });
+            await github.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['autorelease: published']
+            });
