@@ -4,6 +4,9 @@ namespace ZitadelPhpClient\User\SetupTwoFactorAuth;
 
 use Exception;
 
+/**
+ * Set up an OTP SMS for a user.
+ */
 class SMS
 {
     private array $settings;
@@ -24,7 +27,7 @@ class SMS
         $this->userid = $userid;
     }
 
-    /**Add the OTP SMS method
+    /**Add the OTP SMS method. The phone number has to be verified to add this second factor.
      * @return void
      * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
      */

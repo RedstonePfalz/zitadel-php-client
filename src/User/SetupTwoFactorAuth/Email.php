@@ -4,6 +4,9 @@ namespace ZitadelPhpClient\User\SetupTwoFactorAuth;
 
 use Exception;
 
+/**
+ * Set up an OTP email for a user.
+ */
 class Email
 {
     private array $settings;
@@ -24,7 +27,7 @@ class Email
         $this->userid = $userid;
     }
 
-    /**Add the OTP Email method
+    /**Add the OTP Email method. The email has to be verified to add the second factor.
      * @return void
      * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
      */

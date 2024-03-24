@@ -35,7 +35,7 @@ class Phone
         return $this->returnedVerificationCode;
     }
 
-    /**Change the phone number
+    /**Change the phone number. After running this command, you can get the verification code via the command getVerificationCode().
      * @param $phone string Phone number
      * @return void
      * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
@@ -72,7 +72,7 @@ class Phone
         }
     }
 
-    /**Get a new Verification code
+    /**Get a new Verification code. After running this command, you can get the verification code via the command getVerificationCode().
      * @return void
      */
     public function resendVerificationCode() {

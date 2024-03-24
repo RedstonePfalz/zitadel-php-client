@@ -6,6 +6,9 @@ namespace ZitadelPhpClient\User\SetupTwoFactorAuth;
 use Exception;
 use chillerlan\QRCode\QRCode;
 
+/**
+ * Set up a TOTP generator for a user
+ */
 class TOTP
 {
     private array $settings;
@@ -42,7 +45,7 @@ class TOTP
         return $this->secret;
     }
 
-    /**Get the TOTP QR-Code
+    /**Get the TOTP QR-Code ready for any Authenticator-App
      * @return string Base64 encoded SVG image url e.g. data:image/svg+xml;base64,PD94...
      */
     public function getQRCode(): string {
@@ -50,7 +53,8 @@ class TOTP
         return $qrCode->render($this->totpUri);
     }
 
-    /**Set up a TOTP token for a user
+    /**Set up a TOTP token for a user.
+     * You can get the URI via the getURI() command, the TOTP secret via the getSecret() command or the QR-Code via the getQRCode() command
      * @return void
      * @throws Exception
      */
@@ -84,7 +88,7 @@ class TOTP
         }
     }
 
-    /**Verify the TOTP method creation
+    /**Verify the TOTP method creation. You can only use this function to finish the TOTP setup. To verify the Code after login, use the 'Create' class in 'Session'.
      * @param $verifyCode
      * @return bool Is the TOTP code correct?
      */

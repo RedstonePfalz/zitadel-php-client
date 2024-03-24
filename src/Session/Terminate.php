@@ -4,6 +4,9 @@ namespace ZitadelPhpClient\Session;
 
 use Exception;
 
+/**
+ * Terminate a session.
+ */
 class Terminate
 {
     private array $settings;
