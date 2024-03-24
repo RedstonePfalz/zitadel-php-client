@@ -12,6 +12,7 @@ class Email
     private array $settings;
     private int $userid;
     private string $returnedVerificationCode;
+
     /**Initialize the email change
      * @param $settings array The settings array
      */
@@ -35,7 +36,7 @@ class Email
         return $this->returnedVerificationCode;
     }
 
-    /**Change the email address
+    /**Change the email address. After running this command, you can get the verification code via the command getVerificationCode().
      * @param $email string E-Mail address
      * @return void
      * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails

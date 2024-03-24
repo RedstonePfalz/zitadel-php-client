@@ -5,7 +5,10 @@ namespace ZitadelPhpClient\User;
 use Exception;
 
 /**
- * Class to delete a user
+ * Class to delete a user.
+ * The state of the user will be changed to 'deleted'.
+ * The user will not be able to log in anymore.
+ * Endpoints requesting this user will return an error 'User not found'
  */
 class Delete
 {
@@ -19,7 +22,7 @@ class Delete
         $this->settings = $settings;
     }
 
-    /**Set the user ID
+    /**Set the user ID of the user you want to delete
      * @param $userid int The id of the user
      * @return void
      */

@@ -4,6 +4,9 @@ namespace ZitadelPhpClient\User;
 
 use Exception;
 
+/**
+ * Returns the full user data including the profile, email, etc.
+ */
 class Get
 {
     private array $settings;

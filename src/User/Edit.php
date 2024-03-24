@@ -19,8 +19,8 @@ class Edit
     {
         $this->settings = $settings;
     }
-    /**Change the user id of the user
-     * @param $userid int The user id of the new user
+    /**Set the user id of the user
+     * @param $userid int The user id of the user
      * @return void
      */
     public function setUserId(int $userid) {

@@ -5,7 +5,7 @@ namespace ZitadelPhpClient\User;
 use Exception;
 
 /**
- *Class to create a new user
+ *Class to create a new user.
  */
 class Create
 {
@@ -37,7 +37,7 @@ class Create
         $this->settings = $settings;
     }
 
-    /**Set the user id of the new user
+    /**Set the user id of the new user (optional). If not set, you'll get one from Zitadel.
      * @param $userid int The user id of the new user
      * @return void
      */
@@ -46,7 +46,7 @@ class Create
         $this->userid = $userid;
     }
 
-    /**Set the username of the new user
+    /**Set the username of the new user. If you don't set one, the email address will be used as username.
      * @param $username string The username of the new user
      * @return void
      */
@@ -66,7 +66,7 @@ class Create
         $this->organizationDomain = $orgDomain;
     }
 
-    /**Set the full name of the new user
+    /**Set the full name of the new user (required)
      * @param $givenName string Given Name
      * @param $familyName string Family Name
      * @return void
@@ -77,7 +77,7 @@ class Create
         $this->familyName = $familyName;
     }
 
-    /**Set the nickname
+    /**Set the nickname (optional)
      * @param $nickName string Nickname
      * @return void
      */
@@ -86,7 +86,7 @@ class Create
         $this->nickName = $nickName;
     }
 
-    /**Set display name
+    /**Set display name (optional)
      * @param $displayName string Display name
      * @return void
      */
@@ -95,7 +95,7 @@ class Create
         $this->displayName = $displayName;
     }
 
-    /**Set the preferred user language
+    /**Set the preferred user language (optional). If you don't set one, the default language will be used.
      * @param $lang string Shortcode of the language, e.g. "en" or "de"
      * @return void
      */
@@ -103,7 +103,7 @@ class Create
         $this->preferredLanguage = $lang;
     }
 
-    /**Set the gender of the new user
+    /**Set the gender of the new user (optional).
      * @param $gender string Default: GENDER_UNSPECIFIED, Possible values: GENDER_MALE, GENDER_FEMALE, GENDER_DIVERSE
      * @return void
      */
@@ -115,7 +115,7 @@ class Create
         }
     }
 
-    /**Set the Email address
+    /**Set the Email address (required). The email address will automatically marked as verified.
      * @param $email string Email address
      * @return void
      */
@@ -124,7 +124,7 @@ class Create
         $this->isEmailVerified = true;
     }
 
-    /**Set the phone number
+    /**Set the phone number (optional). The phone number will be automatically marked as verified.
      * @param $phone string Phone number in the format with county code, e.g. "+491590123456"
      * @return void
      */
@@ -134,7 +134,7 @@ class Create
 
     }
 
-    /**Add Metadata to the user Profile
+    /**Add Metadata to the user Profile (optional). The value will be automatically Base64 encoded.
      * @param $key string Key
      * @param $value string Value
      * @return void
@@ -146,7 +146,7 @@ class Create
         ];
     }
 
-    /**Set a password for the new user account
+    /**Set a password for the new user account (required)
      * @param $password string The password
      * @param $changeRequired bool If a change is required, the user have to set a new password at the next login.
      * @return void
@@ -156,7 +156,7 @@ class Create
         $this->passwordChangeRequired = $changeRequired;
     }
 
-    /**Add an Identity Provider to the User-Profile, so the user can sign in through e.g. Google or GitHub
+    /**Add an Identity Provider to the User-Profile, so the user can sign in through e.g. Google or GitHub (optional). To get the required data to link an IDP, use the IDP class.
      * @param $idpId int The ID of the Identity Provider
      * @param $userId string The user id you get from the Identity Provider
      * @param $userName string The username you get from the Identity Provider
