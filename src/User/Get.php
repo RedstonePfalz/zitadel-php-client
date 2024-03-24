@@ -4,7 +4,7 @@ namespace ZitadelPhpClient\User;
 
 use Exception;
 
-class GetUser
+class Get
 {
     private array $settings;
     private int $userid;
@@ -25,7 +25,7 @@ class GetUser
     private string $profilePicture;
     private string $rawUserData;
 
-    /**Initialize the GetUser class
+    /**Initialize the Get class
      * @param $settings array The settings array
      */
     public function __construct(array $settings) {

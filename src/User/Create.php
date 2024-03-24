@@ -7,7 +7,7 @@ use Exception;
 /**
  *Class to create a new user
  */
-class NewUser
+class Create
 {
     private array $settings;
     private int $userid;
