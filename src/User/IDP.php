@@ -45,7 +45,7 @@ class IDP
      * @param string $idpId ID of the Identity Provider
      * @return void
      */
-    public function setIDPId(string $idpId) {
+    public function setIdpId(string $idpId) {
         $this->idpId = $idpId;
     }
 
@@ -61,7 +61,7 @@ class IDP
      * @param string $idpIntentId IDP Intent ID. Zitadel sends it in the GET-Parameter "id" to the success URL
      * @return void
      */
-    public function setIDPIntentId(string $idpIntentId) {
+    public function setIdpIntentId(string $idpIntentId) {
         $this->idpIntentId = $idpIntentId;
     }
 
@@ -69,7 +69,7 @@ class IDP
      * @param string $idpToken IDP Token. Zitadel sends it in the GET-Parameter "token" to the success URL
      * @return void
      */
-    public function setIDPToken(string $idpToken) {
+    public function setIdpToken(string $idpToken) {
         $this->idpToken = $idpToken;
     }
 
@@ -196,7 +196,7 @@ class IDP
      * @return void
      * @throws Exception
      */
-    public function fetchIDPData() {
+    public function fetchIdpData() {
         $token = $this->settings["userToken"];
         $curl = curl_init();
         curl_setopt_array($curl, array(
