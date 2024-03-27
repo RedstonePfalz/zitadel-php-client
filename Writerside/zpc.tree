@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="zpc"
+                 name="Zitadel PHP Client"
+                 start-page="start.md">
+
+    <toc-element topic="start.md"/>
+    <toc-element topic="Basics.md"/>
+    <toc-element toc-title="User Management">
+        <toc-element toc-title="Set up 2FA">
+            <toc-element topic="Email_2FA.md"/>
+            <toc-element topic="SMS.md"/>
+            <toc-element topic="TOTP.md"/>
+        </toc-element>
+        <toc-element topic="Create.md"/>
+        <toc-element topic="Edit.md"/>
+        <toc-element topic="Get.md"/>
+        <toc-element topic="Delete.md"/>
+        <toc-element topic="Email.md"/>
+        <toc-element topic="Phone.md"/>
+        <toc-element topic="Password.md"/>
+        <toc-element topic="Account.md"/>
+        <toc-element topic="IDP.md"/>
+    </toc-element>
+    <toc-element toc-title="Session Management">
+
+        <toc-element topic="Terminate.md"/>
+    </toc-element>
+</instance-profile>
