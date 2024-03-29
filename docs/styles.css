@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  margin: 10px;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  background-color: rgba(219, 219, 219, 0.3);
+  color: white;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+}
+
+.square:hover {
+  background-color: rgba(219, 219, 219, 0.5);
+}
+
+@media screen and (max-width: 600px) {
+  .square {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 14px;
+  }
+}
