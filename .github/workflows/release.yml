@@ -1,51 +1,100 @@
-name: Create Release on Merge
+name: Release
 
 on:
-  pull_request:
-    types: [closed]
+  workflow_dispatch:
+    inputs:
+      release_name:
+        description: Release name
+        required: true
+
+env:
+  INSTANCE: 'Writerside/zpc'
+  ARTIFACT: 'webHelpZPC2-all.zip'
+  DOCKER_VERSION: '233.14938'
 
 jobs:
-  create_release:
-    name: Create Release
-    if: "${{ github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, 'autorelease: pending') }}"
+  collect-commits:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v4.1.1
+      with:
+        fetch-depth: 0
 
-      - name: Get version from .release-please-manifest.json
-        id: get_version
-        run: |
-          RELEASE_NAME=$(jq -r '.["."]' .release-please-manifest.json)
-          echo "::set-output name=version::$RELEASE_NAME"
-          
-      - name: Read Changelog
-        id: read_changelog
-        run: echo "::set-output name=changelog::$(cat CHANGELOG.md)"
+    - name: Setup Doxygen
+      run: |
+        wget https://github.com/doxygen/doxygen/releases/download/Release_1_10_0/doxygen-1.10.0.linux.bin.tar.gz
+        tar xzvf doxygen-1.10.0.linux.bin.tar.gz
+        cd doxygen-1.10.0
+        sudo make install
+      
+    - name: Get last release information
+      id: get_last_release
+      run: |
+        LAST_RELEASE=$(git describe --tags --abbrev=0)
+        echo "::set-output name=tag::$LAST_RELEASE"
+        
+    - name: Get commit messages since last release
+      id: get_commit_messages
+      run: |
+        git fetch --tags
+        git log --pretty=format:"%s" ${{ steps.get_last_release.outputs.tag }}..HEAD > commit_messages.txt
+      
+    - name: Create release description
+      id: create_release_description
+      run: |
+        while IFS= read -r line; do
+          case $line in
+            *chore:*) echo "**$line**" >> release_description.txt;;
+            *fix:*) echo "**$line**" >> release_description.txt;;
+            *docs:*) echo "**$line**" >> release_description.txt;;
+            *feat:*) echo "**$line**" >> release_description.txt;;
+            *) echo "$line" >> release_description.txt;;
+          esac
+        done < commit_messages.txt
+      
+    - name: Generate PHPDocs
+      run: |
+        doxygen
+        git config --global user.email "147314055+AdministrationBot@users.noreply.github.com"
+        git config --global user.name "AdministrationBot"
+        
+    - name: Publish PHPDocs
+      run: |
+        git add .
+        git diff --quiet || git commit -m "docs: Update PHPDocs"
+        git push
 
-      - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: v${{ steps.get_version.outputs.version }}
-          title: v${{ steps.get_version.outputs.version }}
-          body: ${{ steps.read_changelog.outputs.changelog }}
-          token: ${{ secrets.BOT_TOKEN }}
+    - name: Build classic docs
+      uses: JetBrains/writerside-github-action@v4
+      with:
+        instance: ${{ env.INSTANCE }}
+        artifact: ${{ env.ARTIFACT }}
+        docker-version: ${{ env.DOCKER_VERSION }}
 
-      - name: Set autorelease published label
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.BOT_TOKEN }}
-          script: |
-            await github.issues.removeLabel({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              name: 'autorelease: pending'
-            });
-            await github.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['autorelease: published']
-            });
+    - name: Unzip generated files
+      run: |
+        mkdir -p docs/classic
+        unzip -o artifacts/${{ env.ARTIFACT }} -d docs/classic
+
+    - name: Publish classic docs
+      run: |
+        git add .
+        git diff --quiet || git commit -m "docs: Update classic docs"
+        git push
+
+    - name: Get release description
+      id: read_release_description
+      run: |
+        cat release_description.txt
+        echo "::set-output name=description::$(cat release_description.txt)"
+        
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+      with:
+        tag_name: ${{ github.event.inputs.release_name }}
+        release_name: ${{ github.event.inputs.release_name }}
