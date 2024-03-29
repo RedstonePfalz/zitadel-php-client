@@ -15,7 +15,7 @@ You get the session ID and session Token after creating a new session.
 
 After that, we can terminate the Session.
 ```php
-$terminate_session->termiate();
+$terminate_session->terminate();
 ```
 
 
