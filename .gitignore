@@ -1,3 +1,8 @@
 /vendor/
 test.php
 *doxygen*
+/artifacts/
+commit_messages.txt
+release_description.txt
+!**/*doxygen*.html
+!**/*doxygen*.css
