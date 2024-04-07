@@ -6,7 +6,7 @@ First, we have to initialize the class and set the Session ID and Session Token.
 ```php
 use ZitadelPhpClient\Session\Terminate;
 
-$terminate_session = new Session($settings);
+$terminate_session = new Terminate($settings);
 $terminate_session->setSessionId("123456789");
 $terminate_session->setSessionToken("ABCDEFG");
 ```
