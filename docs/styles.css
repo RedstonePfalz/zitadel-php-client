@@ -1,13 +1,22 @@
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   background-image: url('background.jpg');
   background-size: cover;
   background-position: center;
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 90vh;
 }
 
 .container {
@@ -26,10 +35,10 @@ body {
   line-height: 200px;
   text-align: center;
   background-color: rgba(219, 219, 219, 0.3);
-  color: white;
   border-radius: 10px;
-  font-family: Arial, sans-serif;
   font-size: 18px;
+  color: white;
+  font-family: Arial, sans-serif;
 }
 
 .square:hover {
