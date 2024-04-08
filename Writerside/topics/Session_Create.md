@@ -1,7 +1,7 @@
 # Create a session
 
 Here you will learn, how to create a session.  
-At the end, you get a token, which is required for further updates of this session,
+At the end, you get a token, which is required for further updates of this session.
 
 First, we have to initialize the class.
 ```php
@@ -108,7 +108,7 @@ $create_session->setLifetime(3600);
 
 ```PHP
 try {
-    $session->create();
+    $create_session->create();
 } catch (Exception $e) {
     echo $e->getMessage();
 }
