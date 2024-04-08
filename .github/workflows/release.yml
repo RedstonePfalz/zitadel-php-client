@@ -64,7 +64,7 @@ jobs:
     - name: Publish PHPDocs
       run: |
         git add .
-        git diff --quiet || git commit -m "docs: Update PHPDocs"
+        git commit -m "docs: Update PHPDocs"
         git status
         git push https://github.com/RedstonePfalz/zitadel-php-client.git main
 
@@ -83,7 +83,7 @@ jobs:
     - name: Publish classic docs
       run: |
         git add .
-        git diff --quiet || git commit -m "docs: Update classic docs"
+        git commit -m "docs: Update classic docs"
         git push https://github.com/RedstonePfalz/zitadel-php-client.git main
 
     - name: Get release description
