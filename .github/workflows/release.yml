@@ -56,6 +56,7 @@ jobs:
       
     - name: Generate PHPDocs
       run: |
+        git pull --rebase
         doxygen
         git config --global user.email "147314055+AdministrationBot@users.noreply.github.com"
         git config --global user.name "AdministrationBot"
