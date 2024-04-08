@@ -25,8 +25,8 @@
         <toc-element topic="IDP.md"/>
     </toc-element>
     <toc-element toc-title="Session Management">
-
         <toc-element topic="Session_Create.md"/>
+        <toc-element topic="Session_Update.md"/>
         <toc-element topic="Session_Terminate.md"/>
     </toc-element>
 </instance-profile>
