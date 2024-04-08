@@ -6,6 +6,8 @@ use Exception;
 
 /**
  * Get a session and all its information like the time of the user or password verification.
+ * If no data is sent back from the Zitadel API for e.g. 2FA tokens, an error will occur when trying to access the data.
+ * Some functions return a date in the format `YYYY-MM-DDThh:mm:ss.fZ` e.g. `2024-04-08T14:37:09.846600Z`.
  */
 class Get
 {
@@ -50,59 +52,98 @@ class Get
         $this->sessionToken = $sessionToken;
     }
 
+    /**Returns the creation date of the session
+     * @return string ISO-8601 Timestamp
+     */
     public function getCreationDate(): string {
         return $this->creationDate;
     }
 
+    /**Returns the change date of the session
+     * @return string ISO-8601 Timestamp
+     */
     public function getChangeDate(): string {
         return $this->changeDate;
     }
 
+    /**Returns the user verification timestamp
+     * @return string ISO-8601 Timestamp
+     */
     public function getUserVerifiedAt(): string {
         return $this->userVerifiedAt;
     }
 
+    /**Returns the user id
+     * @return string ISO-8601 Timestamp
+     */
     public function getUserId(): string {
         return $this->userId;
     }
 
+    /**Returns the user login name e.g. doe@your-zitadel-instance.com
+     * @return string ISO-8601 Timestamp
+     */
     public function getUserLoginName(): string {
         return $this->userLoginName;
     }
 
+    /**Returns the display name of the user
+     * @return string ISO-8601 Timestamp
+     */
     public function getUserDisplayName(): string {
         return $this->userDisplayName;
     }
 
+    /**Returns the organization id, the user is member of
+     * @return string ISO-8601 Timestamp
+     */
     public function getUserOrganizationId(): string {
         return $this->userOrganizationId;
     }
 
+    /**Returns the password verification date
+     * @return string ISO-8601 Timestamp
+     */
     public function getPasswordVerifiedAt(): string {
         return $this->passwordVerifiedAt;
     }
 
+    /** Returns the IDP verification date
+     * @return string ISO-8601 Timestamp
+     */
     public function getIdpVerifiedAt(): string {
         return $this->idpVerifiedAt;
     }
 
+    /**Returns the OTP Email verification date
+     * @return string ISO-8601 Timestamp
+     */
     public function getEmailVerifiedAt(): string {
         return $this->otpEmailVerifiedAt;
     }
 
+    /**Returns the session expiration date
+     * @return string ISO-8601 Timestamp
+     */
     public function getExpirationDate(): string {
         return $this->expirationDate;
     }
 
+    /**Returns the TOTP code verification date
+     * @return string ISO-8601 Timestamp
+     */
     public function getTotpVerifiedAt(): string {
         return $this->totpVerifiedAt;
     }
 
+    /**Returns the OTP SMS verification date
+     * @return string ISO-8601 Timestamp
+     */
     public function getSmsVerifiedAt(): string {
         return $this->optSmsVerifiedAt;
     }
 
-    /**Get the session
+    /**Fetch the session data
      * @return void
      * @throws Exception Returns an error, if the communication with Zitadel fails or one of the checks fails.
      */
