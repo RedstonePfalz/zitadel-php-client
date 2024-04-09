@@ -4,7 +4,7 @@
 
 Here, you find the detailed documentation. There is also a [PHPDoc documentation](https://redstonepfalz.github.io/zitadel-php-client/phpdoc).
 
-Zitadel PHP Client is a simple PHP library for interact with Zitadel.
+Zitadel PHP Client is a simple PHP library for interacting with Zitadel.
 
 You can use it easily with Composer:
 ```Bash
