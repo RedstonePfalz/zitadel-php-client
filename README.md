@@ -1,5 +1,7 @@
 # Zitadel PHP Client
 
+[![Release](https://github.com/RedstonePfalz/zitadel-php-client/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/RedstonePfalz/zitadel-php-client/actions/workflows/release.yml)
+
 Zitadel PHP Client is a simple PHP library for interacting with Zitadel.
 
 You can use it easily with Composer:
