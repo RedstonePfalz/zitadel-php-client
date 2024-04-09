@@ -4,7 +4,7 @@ namespace ZitadelPhpClient;
 
 /**
  * A library to interact with Zitadel API.
- * The functions are documented with PHPDoc and in the GitHub Wiki.
+ * The functions are documented with PHPDoc and in a classic documentation.
  * You can find more information in the Zitadel documentation at https://zitadel.com/docs
  *
  * Credits:
