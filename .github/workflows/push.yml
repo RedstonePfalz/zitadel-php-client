@@ -71,16 +71,18 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        language: [ 'php', 'javascript' ]  # Define the programming languages to analyze
+        language: [ 'php']  
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        path: "src/"
       
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
-        languages: ${{ matrix.language }}  # Specify the programming language to initialize
+        languages: ${{ matrix.language }}  
       
     - name: Autobuild
       uses: github/codeql-action/autobuild@v3
