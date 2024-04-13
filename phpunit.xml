@@ -5,7 +5,7 @@
 >
     <testsuites>
         <testsuite name="all">
-            <directory>./test</directory>
+            <directory>test</directory>
         </testsuite>
     </testsuites>
 
