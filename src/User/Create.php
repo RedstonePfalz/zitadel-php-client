@@ -10,6 +10,7 @@ use Exception;
 class Create
 {
     private array $settings;
+    private array $request;
     private int $userid;
     private string $username;
     private string $organizationId;
@@ -38,12 +39,12 @@ class Create
     }
 
     /**Set the user id of the new user (optional). If not set, you'll get one from Zitadel.
-     * @param $userid int The user id of the new user
+     * @param $userid string The user id of the new user
      * @return void
      */
-    public function setUserId(int $userid)
+    public function setUserId(string $userid)
     {
-        $this->userid = $userid;
+        $this->request["userId"] = $userid;
     }
 
     /**Set the username of the new user. If you don't set one, the email address will be used as username.
@@ -52,7 +53,7 @@ class Create
      */
     public function setUserName(string $username)
     {
-        $this->username = $username;
+        $this->request["username"] = $username;
     }
 
     /**Set the organization membership of the new user
@@ -62,8 +63,8 @@ class Create
      */
     public function setOrganization(int $orgId, string $orgDomain)
     {
-        $this->organizationId = $orgId;
-        $this->organizationDomain = $orgDomain;
+        $this->request["organization"]["orgId"] = $orgId;
+        $this->request["organization"]["orgDomain"] = $orgDomain;
     }
 
     /**Set the full name of the new user (required)
@@ -73,8 +74,8 @@ class Create
      */
     public function setName(string $givenName, string $familyName)
     {
-        $this->givenName = $givenName;
-        $this->familyName = $familyName;
+        $this->request["profile"]["givenName"] = $givenName;
+        $this->request["profile"]["familyName"] = $familyName;
     }
 
     /**Set the nickname (optional)
@@ -83,7 +84,7 @@ class Create
      */
     public function setNickName(string $nickName)
     {
-        $this->nickName = $nickName;
+        $this->request["profile"]["nickName"] = $nickName;
     }
 
     /**Set display name (optional)
@@ -92,7 +93,7 @@ class Create
      */
     public function setDisplayName(string $displayName)
     {
-        $this->displayName = $displayName;
+        $this->request["profile"]["displayName"] = $displayName;
     }
 
     /**Set the preferred user language (optional). If you don't set one, the default language will be used.
@@ -100,7 +101,7 @@ class Create
      * @return void
      */
     public function setLanguage(string $lang) {
-        $this->preferredLanguage = $lang;
+        $this->request["profile"]["preferredLanguage"] = $lang;
     }
 
     /**Set the gender of the new user (optional).
@@ -109,9 +110,9 @@ class Create
      */
     public function setGender(string $gender) {
         if ($gender == "GENDER_FEMALE" or $gender == "GENDER_MALE" or $gender == "GENDER_DIVERSE") {
-            $this->gender = $gender;
+            $this->request["profile"]["gender"] = $gender;
         } else {
-            $this->gender = "GENDER_UNSPECIFIED";
+            $this->request["profile"]["gender"] = "GENDER_UNSPECIFIED";
         }
     }
 
@@ -120,8 +121,8 @@ class Create
      * @return void
      */
     public function setEmail(string $email) {
-        $this->email = $email;
-        $this->isEmailVerified = true;
+        $this->request["email"]["email"] = $email;
+        $this->request["email"]["isVerified"] = true;
     }
 
     /**Set the phone number (optional). The phone number will be automatically marked as verified.
@@ -129,8 +130,8 @@ class Create
      * @return void
      */
     public function setPhone(string $phone) {
-        $this->phone = $phone;
-        $this->isPhoneVerified = true;
+        $this->request["phone"]["phone"] = $phone;
+        $this->request["phone"]["isVerified"] = true;
 
     }
 
@@ -140,10 +141,11 @@ class Create
      * @return void
      */
     public function addMetaData(string $key, string $value) {
-        $this->metadata[] = [
+        $this->request["metadata"][] = [
             "key" => $key,
             "value" => base64_encode($value)
         ];
+        echo json_encode($this->request);
     }
 
     /**Set a password for the new user account (required)
@@ -152,8 +154,8 @@ class Create
      * @return void
      */
     public function setPassword(string $password, bool $changeRequired) {
-        $this->password = $password;
-        $this->passwordChangeRequired = $changeRequired;
+        $this->request["password"]["password"] = $password;
+        $this->request["password"]["changeRequired"] = $changeRequired;
     }
 
     /**Add an Identity Provider to the User-Profile, so the user can sign in through e.g. Google or GitHub (optional). To get the required data to link an IDP, use the IDP class.
@@ -163,7 +165,7 @@ class Create
      * @return void
      */
     public function addIDPLink(int $idpId, string $userId, string $userName) {
-        $this->idpLinks[] = [
+        $this->request["idpLinks"][] = [
             "idpId" => $idpId,
             "userId" => $userId,
             "userName" => $userName
@@ -177,36 +179,6 @@ class Create
     public function create()
     {
         $token = $this->settings["serviceUserToken"];
-        $request = array(
-            "userId" => $this->userid,
-            "username" => $this->username,
-            "organization" => array(
-                "orgId" => $this->organizationId,
-                "orgDomain" => $this->organizationDomain
-            ),
-            "profile" => array(
-                "givenName" => $this->givenName,
-                "familyName" => $this->familyName,
-                "nickName" => $this->nickName,
-                "displayName" => $this->displayName,
-                "preferredLanguage" => $this->preferredLanguage,
-                "gender" => $this->gender
-            ),
-            "email" => array(
-                "email" => $this->email,
-                "isVerified" => $this->isEmailVerified
-            ),
-            "phone" => array(
-                "phone" => $this->phone,
-                "isVerified" => $this->isPhoneVerified
-            ),
-            "metadata" => $this->metadata,
-            "password" => array(
-                "password" => $this->password,
-                "changeRequired" => $this->passwordChangeRequired
-            ),
-            "idpLinks" => $this->idpLinks
-        );
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/human",
@@ -216,7 +188,7 @@ class Create
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => json_encode($request),
+            CURLOPT_POSTFIELDS => json_encode($this->request),
             CURLOPT_HTTPHEADER => array(
                 "Content-Type: application/json",
                 "Accept: application/json",
