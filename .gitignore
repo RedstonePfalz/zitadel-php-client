@@ -7,3 +7,4 @@ release_description.txt
 !**/*doxygen*.html
 !**/*doxygen*.css
 settings.php
+/.phpunit.cache/
