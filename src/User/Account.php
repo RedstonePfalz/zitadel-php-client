@@ -23,7 +23,7 @@ class Account
      * @param $userid int User id
      * @return void
      */
-    public function setUserId(int $userid) {
+    public function setUserId(int $userid): void {
         $this->userid = $userid;
     }
 
@@ -32,7 +32,7 @@ class Account
      * @return void
      * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
      */
-    public function deactivate() {
+    public function deactivate(): void {
         $this->action = "deactivate";
         $this->request();
     }
@@ -42,7 +42,7 @@ class Account
      * @return void
      * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
      */
-    public function reactivate() {
+    public function reactivate(): void {
         $this->action = "reactivate";
         $this->request();
     }
@@ -52,7 +52,7 @@ class Account
      * @return void
      * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
      */
-    public function lock() {
+    public function lock(): void {
         $this->action = "lock";
         $this->request();
     }
@@ -61,7 +61,7 @@ class Account
      * @return void
      * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
      */
-    public function unlock() {
+    public function unlock(): void {
         $this->action = "unlock";
         $this->request();
     }
@@ -69,7 +69,7 @@ class Account
     /**
      * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
      */
-    private function request() {
+    private function request(): void {
         $token = $this->settings["serviceUserToken"];
         $curl = curl_init();
 
