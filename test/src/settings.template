@@ -1,0 +1,9 @@
+<?php
+
+class settings
+{
+    public array $settings = [
+        "domain" => "",
+        "serviceUserToken" => ""
+    ];
+}
