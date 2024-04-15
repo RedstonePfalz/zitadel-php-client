@@ -2,7 +2,7 @@
   "bootstrap-sha": "8e8efa0a4e7d993402d173e95da5d7191902f634",
   "include-component-in-tag": false,
   "include-v-in-tag": true,
-  "pull-request-title-pattern": "release: ${version}",
+  "pull-request-title-pattern": "chore: release: ${version}",
   "release-type": "php",
   "packages": {
     ".": {}
