@@ -65,3 +65,14 @@ jobs:
       - uses: securego/gosec@master
         with:
           args: ./src
+
+  PHPUnit:
+    name: PHPUnit
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: php-actions/composer@v6
+      - uses: php-actions/phpunit@v3
+        with:
+          configuration: "phpunit.xml"
