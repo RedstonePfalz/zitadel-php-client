@@ -8,3 +8,4 @@ release_description.txt
 !**/*doxygen*.css
 settings.php
 /.phpunit.cache/
+test-results
