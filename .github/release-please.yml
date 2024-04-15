@@ -1,2 +1,2 @@
-handleGHRelease: false
+handleGHRelease: true
 manifest: true
