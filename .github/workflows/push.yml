@@ -73,6 +73,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: php-actions/composer@v6
+      - name: Create settings.php
+        run: echo "${{ secrets.PHPUNIT_SETTINGS }}" > test/src/settings.php
       - uses: php-actions/phpunit@v3
         with:
           configuration: "phpunit.xml"
