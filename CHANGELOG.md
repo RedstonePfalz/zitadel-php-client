@@ -1,5 +1,50 @@
 # Changelog
 
+## [1.3.0](https://github.com/RedstonePfalz/zitadel-php-client/compare/v1.2.0...v1.3.0) (2024-04-15)
+
+
+### Features
+
+* Add User Tests ([7a56fa9](https://github.com/RedstonePfalz/zitadel-php-client/commit/7a56fa9b4d31b81d5cf866d4925eaeb473b9b873))
+
+
+### Bug Fixes
+
+* Removed unnecessary code ([43f7964](https://github.com/RedstonePfalz/zitadel-php-client/commit/43f7964106dce8e1919a5b0e8161f3bd559fc9f9))
+
+
+### Miscellaneous Chores
+
+* Add badge in Readme ([fdf9f1b](https://github.com/RedstonePfalz/zitadel-php-client/commit/fdf9f1bf31d0135ebc8b73ced9e83b47f372c125))
+* Add CodeQL-Tests ([bb1a0de](https://github.com/RedstonePfalz/zitadel-php-client/commit/bb1a0de7a5535b517c99678a86b347746ae10449))
+* Add commit code ([abbf66b](https://github.com/RedstonePfalz/zitadel-php-client/commit/abbf66b51f4fe327c0b4ce863c93fb25478ce940))
+* Add label ([b569ba4](https://github.com/RedstonePfalz/zitadel-php-client/commit/b569ba4870b9e4df2b508c36d038256f77957d04))
+* Add PHPUnit Cache to .gitignore ([18bba0c](https://github.com/RedstonePfalz/zitadel-php-client/commit/18bba0cf35fa2167dacfffa85863d48c11f94351))
+* Add PHPUnit-Tests ([dbecea6](https://github.com/RedstonePfalz/zitadel-php-client/commit/dbecea6dd5f0fb931ee9581b05dedf1c248da0c7))
+* Add Release status badge ([e3c36c0](https://github.com/RedstonePfalz/zitadel-php-client/commit/e3c36c0b7974dbd059c21f2c21284f89941f34de))
+* Add release type ([#30](https://github.com/RedstonePfalz/zitadel-php-client/issues/30)) ([8322ea6](https://github.com/RedstonePfalz/zitadel-php-client/commit/8322ea6550bb13553049de86d0a90d0762a4174b))
+* Add settings.php to .gitgnore ([e4dbd1c](https://github.com/RedstonePfalz/zitadel-php-client/commit/e4dbd1c09e7fd9829c0a15b3db633cf52afddfc4))
+* Add Test README ([55c7983](https://github.com/RedstonePfalz/zitadel-php-client/commit/55c7983ab92d2a239bb08134826da509aa4bd299))
+* Add test results to gitignore ([e05779e](https://github.com/RedstonePfalz/zitadel-php-client/commit/e05779ed4cda47f2b5af5003b5f5a0a0e50cc43f))
+* Add Test settings template ([7117a01](https://github.com/RedstonePfalz/zitadel-php-client/commit/7117a015b17a52450ef4a98fabfc0fac50af47fc))
+* Change version to PHP8 ([54b343a](https://github.com/RedstonePfalz/zitadel-php-client/commit/54b343a73d2f5cbf6b0b264679aab4d3c33c1f05))
+* Correct documentation source ([5565fb3](https://github.com/RedstonePfalz/zitadel-php-client/commit/5565fb3b324c30588ab15f67ceee7b19d26202e7))
+* Edit description ([8c42d75](https://github.com/RedstonePfalz/zitadel-php-client/commit/8c42d75874c777cf93cc1b4d151d476349c63c6e))
+* Fix ([1ba6b44](https://github.com/RedstonePfalz/zitadel-php-client/commit/1ba6b441ee8f6416ee4c3a9482c5ca20760523b5))
+* Fix CodeQL bug ([2b32306](https://github.com/RedstonePfalz/zitadel-php-client/commit/2b32306b0f9251d5bb2adbdd86f11a0fc47ba63a))
+* Fix commit message ([3b1dfb9](https://github.com/RedstonePfalz/zitadel-php-client/commit/3b1dfb93f24a08717da36977d687893411880eb7))
+* Fix workflow ([291b365](https://github.com/RedstonePfalz/zitadel-php-client/commit/291b365c625350c9cc28cf7d60272a805354f3ec))
+* Fix([#29](https://github.com/RedstonePfalz/zitadel-php-client/issues/29)) ([d029244](https://github.com/RedstonePfalz/zitadel-php-client/commit/d02924415369b0fda1b1b4b0bc4541ceb21b1f61))
+* Handle GHRelease ([e5fee22](https://github.com/RedstonePfalz/zitadel-php-client/commit/e5fee22cdaea09b7f6740515733ef6a6c36a33ef))
+* Mark test-folder as test root ([5b45004](https://github.com/RedstonePfalz/zitadel-php-client/commit/5b45004bdf3c6bcb261044084a9dd562b10b4329))
+* Remove workflow ([6b6a1f6](https://github.com/RedstonePfalz/zitadel-php-client/commit/6b6a1f6d767105c197f1059887f9a4dfe1523294))
+* Set up PHPUnit ([7aeb65e](https://github.com/RedstonePfalz/zitadel-php-client/commit/7aeb65e25c4b9a7f1e4561b31f8ad1062bdac453))
+* Set up PHPUnit ([6457f8a](https://github.com/RedstonePfalz/zitadel-php-client/commit/6457f8a7be6d71d9ba2f83f2dce9e509011f506e))
+* Set up PHPUnit ([bb07bd8](https://github.com/RedstonePfalz/zitadel-php-client/commit/bb07bd812a56307a7c1c1ec2d3df74a7bf3e627d))
+* Update PHPUnit ([f15f6da](https://github.com/RedstonePfalz/zitadel-php-client/commit/f15f6da4e1fe64162294c7049e3ddbb279b203ed))
+* Update settings ([9a71818](https://github.com/RedstonePfalz/zitadel-php-client/commit/9a71818ef26ffc3fb3292fdb026a4a4f3bf574b3))
+* Update version ([6d4783e](https://github.com/RedstonePfalz/zitadel-php-client/commit/6d4783eeb80ab99cf0e4f77114ddd5c6dffd6254))
+
 ## [1.0.1](https://github.com/RedstonePfalz/zitadel-php-client/compare/v1.0.0...v1.0.1) (2024-03-21)
 
 
