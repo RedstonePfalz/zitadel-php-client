@@ -45,7 +45,7 @@ class Phone
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/$this->userid/phone",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/users/$this->userid/phone",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -79,7 +79,7 @@ class Phone
         $curl = curl_init();
         $token = $this->settings["serviceUserToken"];
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/$this->userid/phone/resend",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/users/$this->userid/phone/resend",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -110,7 +110,7 @@ class Phone
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/$this->userid/phone/verify",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/users/$this->userid/phone/verify",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

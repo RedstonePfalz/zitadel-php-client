@@ -63,7 +63,7 @@ class TOTP
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/$this->userid/totp",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/users/$this->userid/totp",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -98,7 +98,7 @@ class TOTP
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/$this->userid/totp/verify",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/users/$this->userid/totp/verify",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

@@ -167,7 +167,7 @@ class IDP
             )
         );
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/idp_intents",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/idp_intents",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -200,7 +200,7 @@ class IDP
         $token = $this->settings["userToken"];
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/idp_intents/$this->idpIntentId",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/idp_intents/$this->idpIntentId",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -249,7 +249,7 @@ class IDP
         );
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/$this->userid/links",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/users/$this->userid/links",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

@@ -53,7 +53,7 @@ class Email
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/$this->userid/otp_email",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/users/$this->userid/otp_email",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

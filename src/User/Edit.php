@@ -83,7 +83,7 @@ class Edit
         $token = $this->settings["serviceUserToken"];
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/$this->userid?" . $this->encodeUserData(),
+            CURLOPT_URL => $this->settings["domain"] . "/v2/users/human/$this->userid?" . $this->encodeUserData(),
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,

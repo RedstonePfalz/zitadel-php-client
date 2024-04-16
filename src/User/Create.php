@@ -181,7 +181,7 @@ class Create
         $token = $this->settings["serviceUserToken"];
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/human",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/users/human",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,

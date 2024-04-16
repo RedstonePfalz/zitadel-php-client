@@ -38,7 +38,7 @@ class Delete
         $token = $this->settings["serviceUserToken"];
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => $this->settings["domain"] . "/v2beta/users/$this->userid",
+            CURLOPT_URL => $this->settings["domain"] . "/v2/users/$this->userid",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
