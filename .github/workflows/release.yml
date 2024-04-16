@@ -97,12 +97,17 @@ jobs:
       uses: mikepenz/release-changelog-builder-action@v4
       with:
         token: ${{ secrets.BOT_TOKEN }}
+        outputFile: "CHANGELOG.md"
+      run: |
+        git add .
+        git commit -m "chore: Add changelog"
+        git push https://github.com/RedstonePfalz/zitadel-php-client.git main --force
         
     - name: Create GitHub Release
       id: create_release
       uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
       with:
+        token: ${{ secrets.BOT_TOKEN }}
+        body: ${{steps.build_changelog.outputs.changelog}}
         tag_name: ${{ github.event.inputs.release_name }}
-        release_name: ${{ github.event.inputs.release_name }}
+        name: ${{ github.event.inputs.release_name }}
