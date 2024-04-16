@@ -1,7 +1,281 @@
 ## 📦 Uncategorized
 
-- Test
-   - PR: #19
-- Test2
-   - PR: #21
+- chore: Init release-please
+   - PR: #0
+- chore: Change IDE settings
+   - PR: #0
+- chore: Setup release-please
+   - PR: #0
+- chore: Init composer project
+   - PR: #0
+- chore: Setup dependabot
+   - PR: #0
+- chore: Setup init class
+   - PR: #0
+- feat(new-user): Create the NewUser class
+   - PR: #0
+- chore: Fix release-please issue #1
+   - PR: #0
+- feat(new-user): Create NewUser class
+   - PR: #0
+- chore: Fix release-please issue #2
+   - PR: #0
+- feat(new-user): Create NewUser class
+   - PR: #0
+- chore: Fix release-please error #3
+   - PR: #0
+- chore: Create merge pr workflow
+   - PR: #0
+- chore: Create first-contribution workflow
+   - PR: #0
+- fix(new-user): Add Base64-Encoding to the metadata
+   - PR: #0
+- feat(delete-user): Add delete user class
+   - PR: #0
+- chore: Add documentation comments
+   - PR: #0
+- feat(edit-user): Add edit user class
+   - PR: #0
+- chore: Update issue templates
+   - PR: #0
+- chore: Create SECURITY.md
+   - PR: #0
+- feat: Migrate to PHP 7.4; Add variable types
+   - PR: #0
+- feat: Add Email Class fpr changing and verifying an email address
+   - PR: #0
+- chore: Add workflows
+   - PR: #0
+- chore: Add workflows
+   - PR: #0
+- chore: Disable CodeQL
+   - PR: #0
+- feat(phone-class): Add class for changing and verifying phone numbers
+   - PR: #0
+- chore: Fix workflow
+   - PR: #0
+- chore: Add QR-Code library
+   - PR: #0
+- chore: Rename classes
+   - PR: #0
+- feat(TOTP-class): Add TOTP class
+   - PR: #0
+- feat(SMS-class): Add SMS OTP class
+   - PR: #0
+- chore: Auto generated IDE configs
+   - PR: #0
+- feat(IDP-class): Add class for handling with external IDPs
+   - PR: #0
+- feat(password-class): Add class for handling with passwords
+   - PR: #0
+- feat(getuser-class): Add get user class
+   - PR: #0
+- feat(getuser-class): Add get email OTP class
+   - PR: #0
+- feat(getuser-class): Add email OTP class
+   - PR: #0
+- feat(account-class): Add account management class
+   - PR: #0
+- chore: release-please create releases
+   - PR: #0
+- chore: release 1.0.0-pre.1
+   - PR: #0
+- chore: Add test file to .gitignore
+   - PR: #0
+- release: 1.0.0-pre.1
+   - PR: #0
+- release: 1.0.0-pre.1
+   - PR: #0
+- Delete LICENSE
+   - PR: #0
+- chore: Set LICENSE
+   - PR: #0
+- chore: Add pre-release
+   - PR: #0
+- chore: test
+   - PR: #0
+- chore: Update release-please-config.json
+   - PR: #0
+- chore: release: 1.0.0
+   - PR: #0
+- Merge branch 'main' of https://github.com/RedstonePfalz/zitadel-php-client
+   - PR: #0
+- feat(terminate-class): Add Terminate session class
+   - PR: #0
+- chore: test
+   - PR: #0
+- Delete LICENSE
+   - PR: #0
+- chore: Add license
+   - PR: #0
+- Update release-please-config.json
+   - PR: #0
+- release: 1.0.0
+   - PR: #0
+- chore: Setup release-trigger bot
+   - PR: #0
+- chore: Disable release handling for release-please
+   - PR: #0
+- chore: Update pull-auto-comment.yml
+   - PR: #0
+- release: 1.0.0
+   - PR: #0
+- chore: test
+   - PR: #0
+- chore: Create release.yml
+   - PR: #0
+- release: 1.0.1
+   - PR: #0
+- chore: Update dependencies
+   - PR: #0
+- chore: Fix workflow
+   - PR: #0
+- Update composer.lock
+   - PR: #0
+- fix(deps): bump chillerlan/php-qrcode from 5.0.1 to 5.0.2
+   - PR: #0
+- chore:test
+   - PR: #0
+- Test (#19)
+   - PR: #0
+- chore:test
+   - PR: #0
+- Test2 (#21)
+   - PR: #0
+- Update README.md
+   - PR: #0
+- chore: fix
+   - PR: #0
+- chore : test
+   - PR: #0
+- chore:Update release.yml
+   - PR: #0
+- Update README.md
+   - PR: #0
+- Update release.yml
+   - PR: #0
+- Update README.md
+   - PR: #0
+- chore: Rename classes
+   - PR: #0
+- docs: Add docs to some classes
+   - PR: #0
+- docs: Finish the documentation
+   - PR: #0
+- chore: Delete LICENSE
+   - PR: #0
+- chore: Add license
+   - PR: #0
+- fix: Rename classes
+   - PR: #0
+- chore: Remove unused elements
+   - PR: #0
+- feat: Upload docs images
+   - PR: #0
+- docs: Add Writerside config files
+   - PR: #0
+- docs: Documented Account class
+   - PR: #0
+- docs: Add Overview page
+   - PR: #0
+- docs: Add documentation home page
+   - PR: #0
+- docs: Add Terminate Session documentation
+   - PR: #0
+- docs: Add Create user documentation
+   - PR: #0
+- docs: Add Delete user documentation
+   - PR: #0
+- docs: Add Edit user documentation
+   - PR: #0
+- docs: Add Email management documentation
+   - PR: #0
+- docs: Add Password management documentation
+   - PR: #0
+- docs: Add Phone management documentation
+   - PR: #0
+- docs: Add IDP management documentation
+   - PR: #0
+- docs: Add Get user documentation
+   - PR: #0
+- docs: Add 2FA email documentation
+   - PR: #0
+- docs: Add 2FA SMS documentation
+   - PR: #0
+- docs: Add 2FA TOTP documentation
+   - PR: #0
+- chore: Add Doxyfile for PHPDoc
+   - PR: #0
+- chore: Add Contributing.md
+   - PR: #0
+- chore: Remove unused files
+   - PR: #0
+- chore: Ignore doxygen files
+   - PR: #0
+- docs: Fix spelling misstake
+   - PR: #0
+- chore: Fix bugs
+   - PR: #0
+- chore: Update release workflow
+   - PR: #0
+- docs: Add landing page
+   - PR: #0
+- docs: Add landing page assets
+   - PR: #0
+- docs: Add landing page stylesheet
+   - PR: #0
+- chore: add PHPDoc Readme
+   - PR: #0
+- docs: Add classic docs readme
+   - PR: #0
+- chore: Add Readme
+   - PR: #0
+- docs: Fix website bugs
+   - PR: #0
+- fix: Fixed request type
+   - PR: #0
+- chore: Init Writerside
+   - PR: #0
+- chore: Init Writerside
+   - PR: #0
+- feat: Add create session class
+   - PR: #0
+- docs: Rename file
+   - PR: #0
+- docs: Add docs for the session create class
+   - PR: #0
+- docs: Add PHPDoc-Comments
+   - PR: #0
+- docs: Add page
+   - PR: #0
+- feat: Add Update session class
+   - PR: #0
+- docs: Fix spelling mistake
+   - PR: #0
+- docs: Add docs for the update-session class
+   - PR: #0
+- feat: Add Get Session class
+   - PR: #0
+- docs: Add PHPDoc comments
+   - PR: #0
+- docs: Add session-get doc page
+   - PR: #0
+- docs: Add session-get docs
+   - PR: #0
+- chore: Fix workflow error
+   - PR: #0
+- chore: Update release.yml
+   - PR: #0
+- chore: Update release.yml
+   - PR: #0
+- chore: Update release.yml
+   - PR: #0
+- chore: Fix broken workflow
+   - PR: #0
+- chore: Fix workflow
+   - PR: #0
+- docs: Update PHPDocs
+   - PR: #0
+- docs: Update version
+   - PR: #0
 
