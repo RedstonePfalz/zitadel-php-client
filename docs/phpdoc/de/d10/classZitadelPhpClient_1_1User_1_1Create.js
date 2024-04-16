@@ -13,6 +13,6 @@ var classZitadelPhpClient_1_1User_1_1Create =
     [ "setOrganization", "de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ae04ec6f225432461c49d56e816c359f3", null ],
     [ "setPassword", "de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a68ad570850e76bf029960425c10ce8a7", null ],
     [ "setPhone", "de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a652bfdb5ce275246ece54449fe5ca59e", null ],
-    [ "setUserId", "de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a22f9cf7543e7eeed7154b055c867e901", null ],
+    [ "setUserId", "de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a8609a0e947e9a8ec1de51202e057a2a4", null ],
     [ "setUserName", "de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a1c5595a0e519e2b63b9ba614d63e3371", null ]
 ];

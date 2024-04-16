@@ -27,9 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Zitadel PHP Client<span id="projectnumber">&#160;1.2</span>
+   <div id="projectname">Zitadel PHP Client<span id="projectnumber">&#160;1.3.0</span>
    </div>
-   <div id="projectbrief">Simple PHP Client for Zitadel</div>
+   <div id="projectbrief">PHP Client for Zitadel</div>
   </td>
  </tr>
  </tbody>
@@ -110,208 +110,180 @@ $(function(){initNavTree('d3/d45/User_2Create_8php_source.html','../../'); initR
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html">Create</a></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">private</span> array $settings;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">private</span> <span class="keywordtype">int</span> $userid;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $username;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $organizationId;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $organizationDomain;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $givenName;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $familyName;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $nickName;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $displayName;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $preferredLanguage;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $gender;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $email;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">private</span> <span class="keywordtype">bool</span> $isEmailVerified;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $phone;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">private</span> <span class="keywordtype">bool</span> $isPhoneVerified;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $password;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">private</span> <span class="keywordtype">bool</span> $passwordChangeRequired;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">private</span> array $metadata;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">private</span> array $idpLinks;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#aaafb16d9a0748c972cfb538b7a7f3097">   35</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#aaafb16d9a0748c972cfb538b7a7f3097">__construct</a>(array $settings)</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        $this-&gt;settings = $settings;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">private</span> array $request;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">private</span> <span class="keywordtype">int</span> $userid;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $username;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $organizationId;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $organizationDomain;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $givenName;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $familyName;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $nickName;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $displayName;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $preferredLanguage;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $gender;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $email;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">private</span> <span class="keywordtype">bool</span> $isEmailVerified;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $phone;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">private</span> <span class="keywordtype">bool</span> $isPhoneVerified;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">private</span> <span class="keywordtype">string</span> $password;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">private</span> <span class="keywordtype">bool</span> $passwordChangeRequired;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">private</span> array $metadata;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">private</span> array $idpLinks;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#aaafb16d9a0748c972cfb538b7a7f3097">   36</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#aaafb16d9a0748c972cfb538b7a7f3097">__construct</a>(array $settings)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        $this-&gt;settings = $settings;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
 </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a22f9cf7543e7eeed7154b055c867e901">   44</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a22f9cf7543e7eeed7154b055c867e901">setUserId</a>(<span class="keywordtype">int</span> $userid)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        $this-&gt;userid = $userid;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a8609a0e947e9a8ec1de51202e057a2a4">   45</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a8609a0e947e9a8ec1de51202e057a2a4">setUserId</a>(<span class="keywordtype">string</span> $userid)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        $this-&gt;request[<span class="stringliteral">&quot;userId&quot;</span>] = $userid;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
 </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a1c5595a0e519e2b63b9ba614d63e3371">   53</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a1c5595a0e519e2b63b9ba614d63e3371">setUserName</a>(<span class="keywordtype">string</span> $username)</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        $this-&gt;username = $username;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a1c5595a0e519e2b63b9ba614d63e3371">   54</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a1c5595a0e519e2b63b9ba614d63e3371">setUserName</a>(<span class="keywordtype">string</span> $username)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        $this-&gt;request[<span class="stringliteral">&quot;username&quot;</span>] = $username;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ae04ec6f225432461c49d56e816c359f3">   63</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ae04ec6f225432461c49d56e816c359f3">setOrganization</a>(<span class="keywordtype">int</span> $orgId, <span class="keywordtype">string</span> $orgDomain)</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        $this-&gt;organizationId = $orgId;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        $this-&gt;organizationDomain = $orgDomain;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ae04ec6f225432461c49d56e816c359f3">   64</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ae04ec6f225432461c49d56e816c359f3">setOrganization</a>(<span class="keywordtype">int</span> $orgId, <span class="keywordtype">string</span> $orgDomain)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        $this-&gt;request[<span class="stringliteral">&quot;organization&quot;</span>][<span class="stringliteral">&quot;orgId&quot;</span>] = $orgId;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        $this-&gt;request[<span class="stringliteral">&quot;organization&quot;</span>][<span class="stringliteral">&quot;orgDomain&quot;</span>] = $orgDomain;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
 </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0b774e4835b719cb6dfd697b88d03454">   74</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0b774e4835b719cb6dfd697b88d03454">setName</a>(<span class="keywordtype">string</span> $givenName, <span class="keywordtype">string</span> $familyName)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        $this-&gt;givenName = $givenName;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        $this-&gt;familyName = $familyName;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0b774e4835b719cb6dfd697b88d03454">   75</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0b774e4835b719cb6dfd697b88d03454">setName</a>(<span class="keywordtype">string</span> $givenName, <span class="keywordtype">string</span> $familyName)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        $this-&gt;request[<span class="stringliteral">&quot;profile&quot;</span>][<span class="stringliteral">&quot;givenName&quot;</span>] = $givenName;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        $this-&gt;request[<span class="stringliteral">&quot;profile&quot;</span>][<span class="stringliteral">&quot;familyName&quot;</span>] = $familyName;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
 </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#afbca9ed875d76b4f75635e9ea4f21325">   84</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#afbca9ed875d76b4f75635e9ea4f21325">setNickName</a>(<span class="keywordtype">string</span> $nickName)</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        $this-&gt;nickName = $nickName;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#afbca9ed875d76b4f75635e9ea4f21325">   85</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#afbca9ed875d76b4f75635e9ea4f21325">setNickName</a>(<span class="keywordtype">string</span> $nickName)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        $this-&gt;request[<span class="stringliteral">&quot;profile&quot;</span>][<span class="stringliteral">&quot;nickName&quot;</span>] = $nickName;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#adb4d7f265b44aff6b80f1d7177ae13d2">   93</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#adb4d7f265b44aff6b80f1d7177ae13d2">setDisplayName</a>(<span class="keywordtype">string</span> $displayName)</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        $this-&gt;displayName = $displayName;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="}">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#adb4d7f265b44aff6b80f1d7177ae13d2">   94</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#adb4d7f265b44aff6b80f1d7177ae13d2">setDisplayName</a>(<span class="keywordtype">string</span> $displayName)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        $this-&gt;request[<span class="stringliteral">&quot;profile&quot;</span>][<span class="stringliteral">&quot;displayName&quot;</span>] = $displayName;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0eadc71decce5c68edd6cc0a41936137">  102</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0eadc71decce5c68edd6cc0a41936137">setLanguage</a>(<span class="keywordtype">string</span> $lang) {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        $this-&gt;preferredLanguage = $lang;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0eadc71decce5c68edd6cc0a41936137">  103</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0eadc71decce5c68edd6cc0a41936137">setLanguage</a>(<span class="keywordtype">string</span> $lang) {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        $this-&gt;request[<span class="stringliteral">&quot;profile&quot;</span>][<span class="stringliteral">&quot;preferredLanguage&quot;</span>] = $lang;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
 </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a510782140b122d214aeda84fe12cc0b3">  110</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a510782140b122d214aeda84fe12cc0b3">setGender</a>(<span class="keywordtype">string</span> $gender) {</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keywordflow">if</span> ($gender == <span class="stringliteral">&quot;GENDER_FEMALE&quot;</span> or $gender == <span class="stringliteral">&quot;GENDER_MALE&quot;</span> or $gender == <span class="stringliteral">&quot;GENDER_DIVERSE&quot;</span>) {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            $this-&gt;gender = $gender;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            $this-&gt;gender = <span class="stringliteral">&quot;GENDER_UNSPECIFIED&quot;</span>;</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        }</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a510782140b122d214aeda84fe12cc0b3">  111</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a510782140b122d214aeda84fe12cc0b3">setGender</a>(<span class="keywordtype">string</span> $gender) {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">if</span> ($gender == <span class="stringliteral">&quot;GENDER_FEMALE&quot;</span> or $gender == <span class="stringliteral">&quot;GENDER_MALE&quot;</span> or $gender == <span class="stringliteral">&quot;GENDER_DIVERSE&quot;</span>) {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            $this-&gt;request[<span class="stringliteral">&quot;profile&quot;</span>][<span class="stringliteral">&quot;gender&quot;</span>] = $gender;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            $this-&gt;request[<span class="stringliteral">&quot;profile&quot;</span>][<span class="stringliteral">&quot;gender&quot;</span>] = <span class="stringliteral">&quot;GENDER_UNSPECIFIED&quot;</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
 </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a2d22391fa86fa0eaf3b9d2a3c29880bc">  122</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a2d22391fa86fa0eaf3b9d2a3c29880bc">setEmail</a>(<span class="keywordtype">string</span> $email) {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        $this-&gt;email = $email;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        $this-&gt;isEmailVerified = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a2d22391fa86fa0eaf3b9d2a3c29880bc">  123</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a2d22391fa86fa0eaf3b9d2a3c29880bc">setEmail</a>(<span class="keywordtype">string</span> $email) {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        $this-&gt;request[<span class="stringliteral">&quot;email&quot;</span>][<span class="stringliteral">&quot;email&quot;</span>] = $email;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        $this-&gt;request[<span class="stringliteral">&quot;email&quot;</span>][<span class="stringliteral">&quot;isVerified&quot;</span>] = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
 </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a652bfdb5ce275246ece54449fe5ca59e">  131</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a652bfdb5ce275246ece54449fe5ca59e">setPhone</a>(<span class="keywordtype">string</span> $phone) {</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        $this-&gt;phone = $phone;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        $this-&gt;isPhoneVerified = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a652bfdb5ce275246ece54449fe5ca59e">  132</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a652bfdb5ce275246ece54449fe5ca59e">setPhone</a>(<span class="keywordtype">string</span> $phone) {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        $this-&gt;request[<span class="stringliteral">&quot;phone&quot;</span>][<span class="stringliteral">&quot;phone&quot;</span>] = $phone;</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        $this-&gt;request[<span class="stringliteral">&quot;phone&quot;</span>][<span class="stringliteral">&quot;isVerified&quot;</span>] = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    }</div>
 </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="foldopen" id="foldopen00142" data-start="{" data-end="}">
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ad1c3324ae0b1633da9d33b21fced508b">  142</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ad1c3324ae0b1633da9d33b21fced508b">addMetaData</a>(<span class="keywordtype">string</span> $key, <span class="keywordtype">string</span> $value) {</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        $this-&gt;metadata[] = [</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="stringliteral">&quot;key&quot;</span> =&gt; $key,</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            <span class="stringliteral">&quot;value&quot;</span> =&gt; base64_encode($value)</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        ];</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    }</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ad1c3324ae0b1633da9d33b21fced508b">  143</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ad1c3324ae0b1633da9d33b21fced508b">addMetaData</a>(<span class="keywordtype">string</span> $key, <span class="keywordtype">string</span> $value) {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        $this-&gt;request[<span class="stringliteral">&quot;metadata&quot;</span>][] = [</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            <span class="stringliteral">&quot;key&quot;</span> =&gt; $key,</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <span class="stringliteral">&quot;value&quot;</span> =&gt; base64_encode($value)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        ];</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        echo json_encode($this-&gt;request);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
 </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a68ad570850e76bf029960425c10ce8a7">  154</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a68ad570850e76bf029960425c10ce8a7">setPassword</a>(<span class="keywordtype">string</span> $password, <span class="keywordtype">bool</span> $changeRequired) {</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        $this-&gt;password = $password;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        $this-&gt;passwordChangeRequired = $changeRequired;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a68ad570850e76bf029960425c10ce8a7">  156</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a68ad570850e76bf029960425c10ce8a7">setPassword</a>(<span class="keywordtype">string</span> $password, <span class="keywordtype">bool</span> $changeRequired) {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        $this-&gt;request[<span class="stringliteral">&quot;password&quot;</span>][<span class="stringliteral">&quot;password&quot;</span>] = $password;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        $this-&gt;request[<span class="stringliteral">&quot;password&quot;</span>][<span class="stringliteral">&quot;changeRequired&quot;</span>] = $changeRequired;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    }</div>
 </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#af0aaa706431818f7814017ec991a1c5c">  165</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#af0aaa706431818f7814017ec991a1c5c">addIDPLink</a>(<span class="keywordtype">int</span> $idpId, <span class="keywordtype">string</span> $userId, <span class="keywordtype">string</span> $userName) {</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        $this-&gt;idpLinks[] = [</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <span class="stringliteral">&quot;idpId&quot;</span> =&gt; $idpId,</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            <span class="stringliteral">&quot;userId&quot;</span> =&gt; $userId,</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            <span class="stringliteral">&quot;userName&quot;</span> =&gt; $userName</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        ];</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#af0aaa706431818f7814017ec991a1c5c">  167</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#af0aaa706431818f7814017ec991a1c5c">addIDPLink</a>(<span class="keywordtype">int</span> $idpId, <span class="keywordtype">string</span> $userId, <span class="keywordtype">string</span> $userName) {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        $this-&gt;request[<span class="stringliteral">&quot;idpLinks&quot;</span>][] = [</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            <span class="stringliteral">&quot;idpId&quot;</span> =&gt; $idpId,</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            <span class="stringliteral">&quot;userId&quot;</span> =&gt; $userId,</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            <span class="stringliteral">&quot;userName&quot;</span> =&gt; $userName</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        ];</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    }</div>
 </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
-<div class="foldopen" id="foldopen00177" data-start="{" data-end="}">
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a435e7d7525d4bcd0ed5e34a469f3adf6">  177</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a435e7d7525d4bcd0ed5e34a469f3adf6">create</a>()</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    {</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        $token = $this-&gt;settings[<span class="stringliteral">&quot;serviceUserToken&quot;</span>];</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        $request = array(</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <span class="stringliteral">&quot;userId&quot;</span> =&gt; $this-&gt;userid,</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            <span class="stringliteral">&quot;username&quot;</span> =&gt; $this-&gt;username,</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="stringliteral">&quot;organization&quot;</span> =&gt; array(</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                <span class="stringliteral">&quot;orgId&quot;</span> =&gt; $this-&gt;organizationId,</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                <span class="stringliteral">&quot;orgDomain&quot;</span> =&gt; $this-&gt;organizationDomain</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            ),</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            <span class="stringliteral">&quot;profile&quot;</span> =&gt; array(</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                <span class="stringliteral">&quot;givenName&quot;</span> =&gt; $this-&gt;givenName,</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                <span class="stringliteral">&quot;familyName&quot;</span> =&gt; $this-&gt;familyName,</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                <span class="stringliteral">&quot;nickName&quot;</span> =&gt; $this-&gt;nickName,</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                <span class="stringliteral">&quot;displayName&quot;</span> =&gt; $this-&gt;displayName,</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                <span class="stringliteral">&quot;preferredLanguage&quot;</span> =&gt; $this-&gt;preferredLanguage,</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>                <span class="stringliteral">&quot;gender&quot;</span> =&gt; $this-&gt;gender</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            ),</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            <span class="stringliteral">&quot;email&quot;</span> =&gt; array(</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                <span class="stringliteral">&quot;email&quot;</span> =&gt; $this-&gt;email,</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                <span class="stringliteral">&quot;isVerified&quot;</span> =&gt; $this-&gt;isEmailVerified</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            ),</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            <span class="stringliteral">&quot;phone&quot;</span> =&gt; array(</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                <span class="stringliteral">&quot;phone&quot;</span> =&gt; $this-&gt;phone,</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                <span class="stringliteral">&quot;isVerified&quot;</span> =&gt; $this-&gt;isPhoneVerified</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>            ),</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>            <span class="stringliteral">&quot;metadata&quot;</span> =&gt; $this-&gt;metadata,</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            <span class="stringliteral">&quot;password&quot;</span> =&gt; array(</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                <span class="stringliteral">&quot;password&quot;</span> =&gt; $this-&gt;password,</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                <span class="stringliteral">&quot;changeRequired&quot;</span> =&gt; $this-&gt;passwordChangeRequired</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            ),</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            <span class="stringliteral">&quot;idpLinks&quot;</span> =&gt; $this-&gt;idpLinks</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        );</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        $curl = curl_init();</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        curl_setopt_array($curl, array(</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            CURLOPT_URL =&gt; $this-&gt;settings[<span class="stringliteral">&quot;domain&quot;</span>] . <span class="stringliteral">&quot;/v2beta/users/human&quot;</span>,</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>            CURLOPT_RETURNTRANSFER =&gt; <span class="keyword">true</span>,</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>            CURLOPT_ENCODING =&gt; <span class="stringliteral">&quot;&quot;</span>,</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            CURLOPT_MAXREDIRS =&gt; 10,</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            CURLOPT_TIMEOUT =&gt; 0,</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>            CURLOPT_FOLLOWLOCATION =&gt; <span class="keyword">true</span>,</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            CURLOPT_CUSTOMREQUEST =&gt; <span class="stringliteral">&quot;POST&quot;</span>,</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            CURLOPT_POSTFIELDS =&gt; json_encode($request),</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>            CURLOPT_HTTPHEADER =&gt; array(</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                <span class="stringliteral">&quot;Content-Type: application/json&quot;</span>,</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                <span class="stringliteral">&quot;Accept: application/json&quot;</span>,</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                <span class="stringliteral">&quot;Authorization: Bearer $token&quot;</span></div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            )</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        ));</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        $response = json_decode(curl_exec($curl));</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keywordflow">if</span>(isset($response-&gt;code)) {</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error-Code: &quot;</span> . $response-&gt;code . <span class="stringliteral">&quot; Message: &quot;</span> . $response-&gt;message);</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        }</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        curl_close($curl);</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="foldopen" id="foldopen00179" data-start="{" data-end="}">
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a435e7d7525d4bcd0ed5e34a469f3adf6">  179</a></span>    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code hl_function" href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a435e7d7525d4bcd0ed5e34a469f3adf6">create</a>()</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        $token = $this-&gt;settings[<span class="stringliteral">&quot;serviceUserToken&quot;</span>];</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        $curl = curl_init();</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        curl_setopt_array($curl, array(</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            CURLOPT_URL =&gt; $this-&gt;settings[<span class="stringliteral">&quot;domain&quot;</span>] . <span class="stringliteral">&quot;/v2beta/users/human&quot;</span>,</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            CURLOPT_RETURNTRANSFER =&gt; <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            CURLOPT_ENCODING =&gt; <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            CURLOPT_MAXREDIRS =&gt; 10,</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            CURLOPT_TIMEOUT =&gt; 0,</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            CURLOPT_FOLLOWLOCATION =&gt; <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            CURLOPT_CUSTOMREQUEST =&gt; <span class="stringliteral">&quot;POST&quot;</span>,</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            CURLOPT_POSTFIELDS =&gt; json_encode($this-&gt;request),</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            CURLOPT_HTTPHEADER =&gt; array(</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>                <span class="stringliteral">&quot;Content-Type: application/json&quot;</span>,</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                <span class="stringliteral">&quot;Accept: application/json&quot;</span>,</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                <span class="stringliteral">&quot;Authorization: Bearer $token&quot;</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            )</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        ));</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        $response = json_decode(curl_exec($curl));</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">if</span>(isset($response-&gt;code)) {</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&quot;Error-Code: &quot;</span> . $response-&gt;code . <span class="stringliteral">&quot; Message: &quot;</span> . $response-&gt;message);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        }</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        curl_close($curl);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    }</div>
 </div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>}</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>}</div>
 </div>
 <div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html">ZitadelPhpClient\User\Create</a></div><div class="ttdef"><b>Definition</b> <a href="#l00010">Create.php:11</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a0b774e4835b719cb6dfd697b88d03454"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0b774e4835b719cb6dfd697b88d03454">ZitadelPhpClient\User\Create\setName</a></div><div class="ttdeci">setName(string $givenName, string $familyName)</div><div class="ttdef"><b>Definition</b> <a href="#l00074">Create.php:74</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a0eadc71decce5c68edd6cc0a41936137"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0eadc71decce5c68edd6cc0a41936137">ZitadelPhpClient\User\Create\setLanguage</a></div><div class="ttdeci">setLanguage(string $lang)</div><div class="ttdef"><b>Definition</b> <a href="#l00102">Create.php:102</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a1c5595a0e519e2b63b9ba614d63e3371"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a1c5595a0e519e2b63b9ba614d63e3371">ZitadelPhpClient\User\Create\setUserName</a></div><div class="ttdeci">setUserName(string $username)</div><div class="ttdef"><b>Definition</b> <a href="#l00053">Create.php:53</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a22f9cf7543e7eeed7154b055c867e901"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a22f9cf7543e7eeed7154b055c867e901">ZitadelPhpClient\User\Create\setUserId</a></div><div class="ttdeci">setUserId(int $userid)</div><div class="ttdef"><b>Definition</b> <a href="#l00044">Create.php:44</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a2d22391fa86fa0eaf3b9d2a3c29880bc"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a2d22391fa86fa0eaf3b9d2a3c29880bc">ZitadelPhpClient\User\Create\setEmail</a></div><div class="ttdeci">setEmail(string $email)</div><div class="ttdef"><b>Definition</b> <a href="#l00122">Create.php:122</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a435e7d7525d4bcd0ed5e34a469f3adf6"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a435e7d7525d4bcd0ed5e34a469f3adf6">ZitadelPhpClient\User\Create\create</a></div><div class="ttdeci">create()</div><div class="ttdef"><b>Definition</b> <a href="#l00177">Create.php:177</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a510782140b122d214aeda84fe12cc0b3"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a510782140b122d214aeda84fe12cc0b3">ZitadelPhpClient\User\Create\setGender</a></div><div class="ttdeci">setGender(string $gender)</div><div class="ttdef"><b>Definition</b> <a href="#l00110">Create.php:110</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a652bfdb5ce275246ece54449fe5ca59e"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a652bfdb5ce275246ece54449fe5ca59e">ZitadelPhpClient\User\Create\setPhone</a></div><div class="ttdeci">setPhone(string $phone)</div><div class="ttdef"><b>Definition</b> <a href="#l00131">Create.php:131</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a68ad570850e76bf029960425c10ce8a7"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a68ad570850e76bf029960425c10ce8a7">ZitadelPhpClient\User\Create\setPassword</a></div><div class="ttdeci">setPassword(string $password, bool $changeRequired)</div><div class="ttdef"><b>Definition</b> <a href="#l00154">Create.php:154</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_aaafb16d9a0748c972cfb538b7a7f3097"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#aaafb16d9a0748c972cfb538b7a7f3097">ZitadelPhpClient\User\Create\__construct</a></div><div class="ttdeci">__construct(array $settings)</div><div class="ttdef"><b>Definition</b> <a href="#l00035">Create.php:35</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_ad1c3324ae0b1633da9d33b21fced508b"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ad1c3324ae0b1633da9d33b21fced508b">ZitadelPhpClient\User\Create\addMetaData</a></div><div class="ttdeci">addMetaData(string $key, string $value)</div><div class="ttdef"><b>Definition</b> <a href="#l00142">Create.php:142</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_adb4d7f265b44aff6b80f1d7177ae13d2"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#adb4d7f265b44aff6b80f1d7177ae13d2">ZitadelPhpClient\User\Create\setDisplayName</a></div><div class="ttdeci">setDisplayName(string $displayName)</div><div class="ttdef"><b>Definition</b> <a href="#l00093">Create.php:93</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_ae04ec6f225432461c49d56e816c359f3"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ae04ec6f225432461c49d56e816c359f3">ZitadelPhpClient\User\Create\setOrganization</a></div><div class="ttdeci">setOrganization(int $orgId, string $orgDomain)</div><div class="ttdef"><b>Definition</b> <a href="#l00063">Create.php:63</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_af0aaa706431818f7814017ec991a1c5c"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#af0aaa706431818f7814017ec991a1c5c">ZitadelPhpClient\User\Create\addIDPLink</a></div><div class="ttdeci">addIDPLink(int $idpId, string $userId, string $userName)</div><div class="ttdef"><b>Definition</b> <a href="#l00165">Create.php:165</a></div></div>
-<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_afbca9ed875d76b4f75635e9ea4f21325"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#afbca9ed875d76b4f75635e9ea4f21325">ZitadelPhpClient\User\Create\setNickName</a></div><div class="ttdeci">setNickName(string $nickName)</div><div class="ttdef"><b>Definition</b> <a href="#l00084">Create.php:84</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a0b774e4835b719cb6dfd697b88d03454"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0b774e4835b719cb6dfd697b88d03454">ZitadelPhpClient\User\Create\setName</a></div><div class="ttdeci">setName(string $givenName, string $familyName)</div><div class="ttdef"><b>Definition</b> <a href="#l00075">Create.php:75</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a0eadc71decce5c68edd6cc0a41936137"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a0eadc71decce5c68edd6cc0a41936137">ZitadelPhpClient\User\Create\setLanguage</a></div><div class="ttdeci">setLanguage(string $lang)</div><div class="ttdef"><b>Definition</b> <a href="#l00103">Create.php:103</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a1c5595a0e519e2b63b9ba614d63e3371"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a1c5595a0e519e2b63b9ba614d63e3371">ZitadelPhpClient\User\Create\setUserName</a></div><div class="ttdeci">setUserName(string $username)</div><div class="ttdef"><b>Definition</b> <a href="#l00054">Create.php:54</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a2d22391fa86fa0eaf3b9d2a3c29880bc"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a2d22391fa86fa0eaf3b9d2a3c29880bc">ZitadelPhpClient\User\Create\setEmail</a></div><div class="ttdeci">setEmail(string $email)</div><div class="ttdef"><b>Definition</b> <a href="#l00123">Create.php:123</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a435e7d7525d4bcd0ed5e34a469f3adf6"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a435e7d7525d4bcd0ed5e34a469f3adf6">ZitadelPhpClient\User\Create\create</a></div><div class="ttdeci">create()</div><div class="ttdef"><b>Definition</b> <a href="#l00179">Create.php:179</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a510782140b122d214aeda84fe12cc0b3"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a510782140b122d214aeda84fe12cc0b3">ZitadelPhpClient\User\Create\setGender</a></div><div class="ttdeci">setGender(string $gender)</div><div class="ttdef"><b>Definition</b> <a href="#l00111">Create.php:111</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a652bfdb5ce275246ece54449fe5ca59e"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a652bfdb5ce275246ece54449fe5ca59e">ZitadelPhpClient\User\Create\setPhone</a></div><div class="ttdeci">setPhone(string $phone)</div><div class="ttdef"><b>Definition</b> <a href="#l00132">Create.php:132</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a68ad570850e76bf029960425c10ce8a7"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a68ad570850e76bf029960425c10ce8a7">ZitadelPhpClient\User\Create\setPassword</a></div><div class="ttdeci">setPassword(string $password, bool $changeRequired)</div><div class="ttdef"><b>Definition</b> <a href="#l00156">Create.php:156</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_a8609a0e947e9a8ec1de51202e057a2a4"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#a8609a0e947e9a8ec1de51202e057a2a4">ZitadelPhpClient\User\Create\setUserId</a></div><div class="ttdeci">setUserId(string $userid)</div><div class="ttdef"><b>Definition</b> <a href="#l00045">Create.php:45</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_aaafb16d9a0748c972cfb538b7a7f3097"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#aaafb16d9a0748c972cfb538b7a7f3097">ZitadelPhpClient\User\Create\__construct</a></div><div class="ttdeci">__construct(array $settings)</div><div class="ttdef"><b>Definition</b> <a href="#l00036">Create.php:36</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_ad1c3324ae0b1633da9d33b21fced508b"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ad1c3324ae0b1633da9d33b21fced508b">ZitadelPhpClient\User\Create\addMetaData</a></div><div class="ttdeci">addMetaData(string $key, string $value)</div><div class="ttdef"><b>Definition</b> <a href="#l00143">Create.php:143</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_adb4d7f265b44aff6b80f1d7177ae13d2"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#adb4d7f265b44aff6b80f1d7177ae13d2">ZitadelPhpClient\User\Create\setDisplayName</a></div><div class="ttdeci">setDisplayName(string $displayName)</div><div class="ttdef"><b>Definition</b> <a href="#l00094">Create.php:94</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_ae04ec6f225432461c49d56e816c359f3"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#ae04ec6f225432461c49d56e816c359f3">ZitadelPhpClient\User\Create\setOrganization</a></div><div class="ttdeci">setOrganization(int $orgId, string $orgDomain)</div><div class="ttdef"><b>Definition</b> <a href="#l00064">Create.php:64</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_af0aaa706431818f7814017ec991a1c5c"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#af0aaa706431818f7814017ec991a1c5c">ZitadelPhpClient\User\Create\addIDPLink</a></div><div class="ttdeci">addIDPLink(int $idpId, string $userId, string $userName)</div><div class="ttdef"><b>Definition</b> <a href="#l00167">Create.php:167</a></div></div>
+<div class="ttc" id="aclassZitadelPhpClient_1_1User_1_1Create_html_afbca9ed875d76b4f75635e9ea4f21325"><div class="ttname"><a href="../../de/d10/classZitadelPhpClient_1_1User_1_1Create.html#afbca9ed875d76b4f75635e9ea4f21325">ZitadelPhpClient\User\Create\setNickName</a></div><div class="ttdeci">setNickName(string $nickName)</div><div class="ttdef"><b>Definition</b> <a href="#l00085">Create.php:85</a></div></div>
 <div class="ttc" id="anamespaceZitadelPhpClient_1_1User_html"><div class="ttname"><a href="../../d0/db9/namespaceZitadelPhpClient_1_1User.html">ZitadelPhpClient\User</a></div><div class="ttdef"><b>Definition</b> <a href="../../d0/d88/Account_8php_source.html#l00003">Account.php:3</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
