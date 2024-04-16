@@ -103,12 +103,6 @@ jobs:
         fetchViaCommits: true
         configuration: "changelog_config.json"
         
-    - name: "Upload to Git"
-      run: |
-        git add .
-        git commit -m "chore: Add changelog"
-        git push https://github.com/RedstonePfalz/zitadel-php-client.git main --force
-        
     - name: Create GitHub Release
       id: create_release
       uses: softprops/action-gh-release@v2
