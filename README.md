@@ -1,6 +1,7 @@
 # Zitadel PHP Client
 
 [![Release](https://github.com/RedstonePfalz/zitadel-php-client/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/RedstonePfalz/zitadel-php-client/actions/workflows/release.yml)
+[![CI](https://github.com/RedstonePfalz/zitadel-php-client/actions/workflows/push.yml/badge.svg)](https://github.com/RedstonePfalz/zitadel-php-client/actions/workflows/push.yml)
 
 
 Zitadel PHP Client is a simple PHP library for interacting with Zitadel.
