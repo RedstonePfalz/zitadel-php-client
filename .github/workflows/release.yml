@@ -98,6 +98,9 @@ jobs:
       with:
         token: ${{ secrets.BOT_TOKEN }}
         outputFile: "CHANGELOG.md"
+        commitMode: true
+        fetchReviewers: true
+        fetchViaCommits: true
         
     - name: "Upload to Git"
       run: |
