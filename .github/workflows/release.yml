@@ -91,6 +91,12 @@ jobs:
       run: |
         cat release_description.txt
         echo "::set-output name=description::$(cat release_description.txt)"
+
+    - name: "Build Changelog"
+      id: build_changelog
+      uses: mikepenz/release-changelog-builder-action@{latest-release}
+      with:
+        token: ${{ secrets.BOT_TOKEN }}
         
     - name: Create GitHub Release
       id: create_release
