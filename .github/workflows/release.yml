@@ -101,6 +101,7 @@ jobs:
         commitMode: true
         fetchReviewers: true
         fetchViaCommits: true
+        configuration: "changelog_config.json"
         
     - name: "Upload to Git"
       run: |
