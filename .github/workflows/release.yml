@@ -98,6 +98,8 @@ jobs:
       with:
         token: ${{ secrets.BOT_TOKEN }}
         outputFile: "CHANGELOG.md"
+        
+    - name: "Upload to Git"
       run: |
         git add .
         git commit -m "chore: Add changelog"
