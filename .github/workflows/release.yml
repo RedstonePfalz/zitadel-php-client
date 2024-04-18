@@ -102,6 +102,10 @@ jobs:
         fetchReviewers: true
         fetchViaCommits: true
         configuration: "changelog_config.json"
+
+    - name: "Output"
+      run: |
+        cat CHANGELOG.md
         
     - name: Create GitHub Release
       id: create_release
