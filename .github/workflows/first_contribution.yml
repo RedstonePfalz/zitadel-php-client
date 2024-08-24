@@ -25,4 +25,4 @@ jobs:
       - name: Add "good first issue" label if user is a first-time contributor
         if: steps.check_first_time_contributor.outputs.first_time_contributor == 'true'
         run: |
-          gh issue label add ${{ github.event.issue.number }} "good first issue"
+          gh issue label add ${{ github.event.issue.number }} "first-contribution"
