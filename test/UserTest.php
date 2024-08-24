@@ -4,15 +4,13 @@ require_once "settings.php";
 
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
+use ZitadelPhpClient\User\Account;
 use ZitadelPhpClient\User\Create;
 use ZitadelPhpClient\User\Delete;
 use ZitadelPhpClient\User\Edit;
-use ZitadelPhpClient\User\Get;
 use ZitadelPhpClient\User\Email;
+use ZitadelPhpClient\User\Get;
 use ZitadelPhpClient\User\Phone;
-use ZitadelPhpClient\User\Account;
-use ZitadelPhpClient\User\Password;
-use ZitadelPhpClient\User\IDP;
 
 
 class UserTest extends TestCase
@@ -23,7 +21,7 @@ class UserTest extends TestCase
 
     public static function setUpBeforeClass(): void
     {
-        $settings = new \settings();
+        $settings = new test\settings();
         self::$settings = $settings->settings;
     }
 
