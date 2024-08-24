@@ -30,4 +30,5 @@
         <toc-element topic="Session_Get.md"/>
         <toc-element topic="Session_Terminate.md"/>
     </toc-element>
+    <toc-element topic="Testing.md"/>
 </instance-profile>
