@@ -23,7 +23,6 @@ jobs:
             "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
             
       - name: Add 'do-not-merge' label
-        if: github.actor != 'RedstonePfalz'
         uses: actions/github-script@v4
         with:
           github-token: ${{ secrets.BOT_TOKEN }}
