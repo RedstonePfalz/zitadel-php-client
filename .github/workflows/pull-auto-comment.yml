@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Comment on Issue or Pull Request
+        if: github.actor != 'RedstonePfalz'
         run: |
           COMMENT_BODY="Hello,\nThank you for creating a pull request.\nYour pull request is now being automatically checked in the background. Once these checks have been completed, your commits will be checked manually.\nPlease check the following things again first:\n- Do the commits follow the [ConventionalCommits standard](https://conventionalcommits.org/)?\n- Are all changes precisely described?\n- Have you tested your changes sufficiently?\n- Have you documented new functions, etc. according to the PHPDoc standard?"
           curl -X POST \
