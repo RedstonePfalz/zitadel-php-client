@@ -16,6 +16,9 @@
     "config": {
         "allow-plugins": {
             "symfony/flex": true
+        },
+        "platform": {
+            "php": "8.2"
         }
     },
     "require": {
